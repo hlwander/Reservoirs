@@ -1,7 +1,7 @@
 Reservoir, Site, Depth, DataStream, TIMESTAMP_start, TIMESTAMP_end, start_parameter, end_parameter, flag, update_value, SN, notes
 NA,NA,NA,CTD,NA,NA,pH,ORP_mV,5,NO CHANGE,8188,Sensors not on new CTD
 NA,NA,NA,CTD,NA,NA,CDOM_ugL,Phycocyanin_ugL,5,NO CHANGE,7809,Sensors not on old CTD
-FCR,NA,NA,CTD, 2017-12-17 12:00:00 EST,2017-12-17 12:00:00 EST,Cond_uScm,Cond_uScm,2,NA,7809,crazy high conductivity
+FCR,NA,NA,CTD,2017-12-17 12:00:00 EST,2017-12-17 12:00:00 EST,Cond_uScm,Cond_uScm,2,NA,7809,crazy high conductivity
 NA,NA,NA,CTD,2017-07-01 00:00:00 EST, 2019-07-31 00:00:00 EST,pH,pH,8,NO CHANGE,7809,
 FCR,NA,NA,CTD,2018-05-24  00:00:00 EST,2018-05-24  23:59:00 EST,Temp_C,SpCond_uScm,2,NA,7809,Not totally sure what the issue is - issues with temp/cond/DO on this cast
 NA,NA,NA,CTD,2018-06-18 00:00:00 EST, 2018-06-18 23:59:00 EST,pH,pH,2,NA,7809,pH outside of reasonable range

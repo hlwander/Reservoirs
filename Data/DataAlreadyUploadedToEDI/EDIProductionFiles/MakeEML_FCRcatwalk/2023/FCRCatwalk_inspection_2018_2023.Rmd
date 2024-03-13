@@ -91,7 +91,7 @@ REVIEWERS- If you are reviewing this data package replace the pasta link with th
 
                                                                 ### CHANGE THIS NUMBER BELOW
                                                                              ##
- current_df <-read_csv("https://pasta-s.lternet.edu/package/data/eml/edi/518/26/bf3c9cf333f25dc600c115dc8a46d40c")
+ current_df <-read_csv("https://pasta.lternet.edu/package/data/eml/edi/271/8/71e6b946b751aa1b966ab5653b01077f")
 
  # Force files from EDI to have an EST timestamp
   current_df$DateTime <- force_tz(as.POSIXct(current_df$DateTime), tzone = "EST")

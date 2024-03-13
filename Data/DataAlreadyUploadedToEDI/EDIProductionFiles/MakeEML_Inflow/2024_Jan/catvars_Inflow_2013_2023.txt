@@ -5,18 +5,18 @@ Flag_VT_Flow_cms	3	value of NA due to extremely low flows that are not well capt
 Flag_VT_Flow_cms	6	flow topping the v-notch weir
 Flag_VT_Flow_cms	7	missing observation/not recorded
 Flag_VT_Flow_cms	8	values removed because of maintenance
-Flag_VT_Flow_cms	24	weir damaged due to weather
+Flag_VT_Flow_cms	24	sensor malfunction and demonic intrusion
 Flag_VT_Pressure_psia	0	no flag
 Flag_VT_Pressure_psia	1	value corrected to account for artificial increase in pressure after sensor maintenance
 Flag_VT_Pressure_psia	2	sensor malfunction
 Flag_VT_Pressure_psia	7	missing observation/not recorded
 Flag_VT_Pressure_psia	8	values removed because of maintenance
-Flag_VT_Pressure_psia	24	weir damaged due to weather
+Flag_VT_Pressure_psia	24	sensor malfunction and demonic intrusion
 Flag_VT_Temp_C	0	no flag
 Flag_VT_Temp_C	2	sensor malfunction
 Flag_VT_Temp_C	7	missing observation/not recorded
 Flag_VT_Temp_C	8	values removed because of maintenance
-Flag_VT_Temp_C	24	weir damaged due to weather
+Flag_VT_Temp_C	24	sensor malfunction and demonic intrusion
 Flag_WVWA_Baro_pressure_psi	0	no flag
 Flag_WVWA_Baro_pressure_psi	2	sensor malfunction
 Flag_WVWA_Baro_pressure_psi	7	missing observation/not recorded
@@ -32,23 +32,23 @@ Flag_WVWA_Flow_cms	7	missing observation/not recorded
 Flag_WVWA_Flow_cms	8	values removed because of maintenance
 Flag_WVWA_Flow_cms	13	value down corrected due to low flows on the rectangular weir
 Flag_WVWA_Flow_cms	16	value downcorrected due to flow overtopping the rectangular weir
-Flag_WVWA_Flow_cms	24	weir damaged due to weather
+Flag_WVWA_Flow_cms	24	sensor malfunction and demonic intrusion
 Flag_WVWA_Pressure_psi	0	no flag
 Flag_WVWA_Pressure_psi	1	value corrected to account for artificial increase in pressure after sensor maintenance
 Flag_WVWA_Pressure_psi	5	value of NA due to leaking at weir
 Flag_WVWA_Pressure_psi	7	missing observation/not recorded
 Flag_WVWA_Pressure_psi	8	values removed because of maintenance
-Flag_WVWA_Pressure_psi	24	weir damaged due to weather
+Flag_WVWA_Pressure_psi	24	sensor malfunction and demonic intrusion
 Flag_WVWA_Pressure_psia	0	no flag
 Flag_WVWA_Pressure_psia	2	sensor malfunction
 Flag_WVWA_Pressure_psia	5	value of NA due to leaking at weir
 Flag_WVWA_Pressure_psia	7	missing observation/not recorded
 Flag_WVWA_Pressure_psia	8	values removed because of maintenance
-Flag_WVWA_Pressure_psia	24	weir damaged due to weather
+Flag_WVWA_Pressure_psia	24	sensor malfunction and demonic intrusion
 Flag_WVWA_Temp_C	0	no flag
 Flag_WVWA_Temp_C	5	value of NA due to leaking at weir
 Flag_WVWA_Temp_C	7	missing observation/not recorded
 Flag_WVWA_Temp_C	8	values removed because of maintenance
-Flag_WVWA_Temp_C	24	weir damaged due to weather
+Flag_WVWA_Temp_C	24	sensor malfunction and demonic intrusion
 Reservoir	FCR	Falling  Creek Reservoir
 Site	100	Inflow stream of Falling Creek Reservoir

@@ -4,3 +4,102 @@ Reservoir	CCR	Carvins Cove Reservoir
 Reservoir	FCR	Falling Creek Reservoir
 Reservoir	GWR	Gatewood Reservoir
 Reservoir	SHR	Spring Hollow Reservoir
+SN	4397	CTD serial number 4397 (used from 2013 - 2016)
+SN	7809	CTD serial number 4397 (used from 2017 - present)
+SN	8188	CTD serial number 4397 (used from 2022 - present)
+Flag_DateTime	0	Not suspect
+Flag_DateTime	7	Datetime missing time (date is meaningful but not time)
+Flag_Temp_C	0	Not suspect
+Flag_Temp_C	1	Sample not taken
+Flag_Temp_C	2	Instrument malfunction
+Flag_Temp_C	3	Sample below detection
+Flag_Temp_C	4	Negative value set to 0
+Flag_Temp_C	5	No sensor on CTD
+Flag_DO_mgL	0	Not suspect
+Flag_DO_mgL	1	Sample not taken
+Flag_DO_mgL	2	Instrument malfunction
+Flag_DO_mgL	3	Sample below detection
+Flag_DO_mgL	4	Negative value set to 0
+Flag_DO_mgL	5	No sensor on CTD
+Flag_DO_mgL	6	Above water measurement removed (set to NA)
+Flag_DOsat_percent	0	Not suspect
+Flag_DOsat_percent	1	Sample not taken
+Flag_DOsat_percent	2	Instrument malfunction
+Flag_DOsat_percent	3	Sample below detection
+Flag_DOsat_percent	4	Negative value set to 0
+Flag_DOsat_percent	5	No sensor on CTD
+Flag_DOsat_percent	6	Above water measurement removed (set to NA)
+Flag_Cond_uScm	0	Not suspect
+Flag_Cond_uScm	1	Sample not taken
+Flag_Cond_uScm	2	Instrument malfunction
+Flag_Cond_uScm	3	Sample below detection
+Flag_Cond_uScm	4	Negative value set to NA
+Flag_Cond_uScm	5	No sensor on CTD
+Flag_Cond_uScm	6	Above water measurement removed (set to NA)
+Flag_SpCond_uScm	0	Not suspect
+Flag_SpCond_uScm	1	Sample not taken
+Flag_SpCond_uScm	2	Instrument malfunction
+Flag_SpCond_uScm	3	Sample below detection
+Flag_SpCond_uScm	4	Negative value set to NA
+Flag_SpCond_uScm	5	No sensor on CTD
+Flag_SpCond_uScm	6	Above water measurement removed (set to NA)
+Flag_Chla_ugL	0	Not suspect
+Flag_Chla_ugL	1	Sample not taken
+Flag_Chla_ugL	2	Instrument malfunction
+Flag_Chla_ugL	3	Sample below detection
+Flag_Chla_ugL	4	Negative value set to 0
+Flag_Chla_ugL	5	No sensor on CTD
+Flag_Chla_ugL	6	Above water measurement removed (set to NA)
+Flag_Turbidity_NTU	0	Not suspect
+Flag_Turbidity_NTU	1	Sample not taken
+Flag_Turbidity_NTU	2	Instrument malfunction
+Flag_Turbidity_NTU	3	Sample below detection
+Flag_Turbidity_NTU	4	Negative value set to 0
+Flag_Turbidity_NTU	5	No sensor on CTD
+Flag_Turbidity_NTU	6	Above water measurement removed (set to NA)
+Flag_pH	0	Not suspect
+Flag_pH	1	Sample not taken
+Flag_pH	2	Instrument malfunction
+Flag_pH	3	Sample below detection
+Flag_pH	4	Negative value set to 0
+Flag_pH	5	No sensor on CTD
+Flag_pH	6	Above water measurement removed (set to NA)
+Flag_pH	8	Measurement outside of expected range but retained in dataset
+Flag_ORP_mV	0	Not suspect
+Flag_ORP_mV	1	Sample not taken
+Flag_ORP_mV	2	Instrument malfunction
+Flag_ORP_mV	3	Sample below detection
+Flag_ORP_mV	5	No sensor on CTD
+Flag_ORP_mV	6	Above water measurement removed (set to NA)
+Flag_PAR_umolm2s	0	Not suspect
+Flag_PAR_umolm2s	1	Sample not taken
+Flag_PAR_umolm2s	2	Instrument malfunction
+Flag_PAR_umolm2s	3	Sample below detection
+Flag_PAR_umolm2s	4	Negative value set to NA
+Flag_PAR_umolm2s	5	No sensor on CTD
+Flag_CDOM_ugL	0	Not suspect
+Flag_CDOM_ugL	1	Sample not taken
+Flag_CDOM_ugL	2	Instrument malfunction
+Flag_CDOM_ugL	3	Sample below detection
+Flag_CDOM_ugL	4	Negative value set to 0
+Flag_CDOM_ugL	5	No sensor on CTD
+Flag_CDOM_ugL	6	Above water measurement removed (set to NA)
+Flag_Phycoerythrin_ugL	0	Not suspect
+Flag_Phycoerythrin_ugL	1	Sample not taken
+Flag_Phycoerythrin_ugL	2	Instrument malfunction
+Flag_Phycoerythrin_ugL	3	Sample below detection
+Flag_Phycoerythrin_ugL	4	Negative value set to 0
+Flag_Phycoerythrin_ugL	5	No sensor on CTD
+Flag_Phycoerythrin_ugL	6	Above water measurement removed (set to NA)
+Flag_Phycocyanin_ugL	0	Not suspect
+Flag_Phycocyanin_ugL	1	Sample not taken
+Flag_Phycocyanin_ugL	2	Instrument malfunction
+Flag_Phycocyanin_ugL	3	Sample below detection
+Flag_Phycocyanin_ugL	4	Negative value set to 0
+Flag_Phycocyanin_ugL	5	No sensor on CTD
+Flag_Phycocyanin_ugL	6	Above water measurement removed (set to NA)
+Flag_DescRate_ms	0	Not suspect
+Flag_DescRate_ms	1	Sample not taken
+Flag_DescRate_ms	2	Instrument malfunction
+Flag_DescRate_ms	3	Sample below detection
+Flag_DescRate_ms	5	No sensor on CTD

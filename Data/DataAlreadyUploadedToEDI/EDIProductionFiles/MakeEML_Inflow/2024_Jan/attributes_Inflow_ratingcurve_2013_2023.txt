@@ -4,5 +4,5 @@ Start	Start of the rating curve calculations	Date		YYYY-MM-DD hh:mm:ss	NA	value 
 End	End of the rating curve calculation	Date		YYYY-MM-DD hh:mm:ss	NA	value is missing
 Slope	The slope of the rating curve as calculated in the qaqc script	character	dimensionless		NA	value is missing
 Intercept	The intercept of the rating curve as calculated in the qaqc script	numeric	dimensionless		NA	value is missing
-Low_psi	Pressure readings that below the sensor as calculated through the rating curve	numeric	poundsPerSquareInch		NA	value is missing
-High_psi	Pressure readings 	numeric	poundsPerSquareInch		NA	value is missing
+Low_psi	Pressure readings that are below the sensor as calculated through the rating curve	numeric	poundsPerSquareInch		NA	value is missing
+High_psi	Pressure readings when water is flowing over the top of the weir as calculated through the rating curve 	numeric	poundsPerSquareInch		NA	value is missing

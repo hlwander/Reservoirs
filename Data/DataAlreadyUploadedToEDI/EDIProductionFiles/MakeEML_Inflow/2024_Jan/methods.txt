@@ -8,53 +8,68 @@ Q = 2.391 x H^2.5
 Where Q is the calculated discharge (m^3 s^-1), 2.391 is the conversion factor for a 120 degree angle -notch weir in m^3 s^-1, and H is the head on the weir (m). We note that for the VT sensor, there was no rating curve developed for the rectangular weir (22 Apr 2019 to 6 Jun 2019) and discharge could not be calculated but pressure and temperature are still reported for this time interval.
 
 ###Description of rating curves over time:
-Multiple rating curves have been developed over the time period of this dataset. Rating curves were developed using correlations between gauge height and pressure measured for each of the installed pressure sensors (WVWA and VT) and gauge height observations are included as a supplementary dataset, Inflow_gaugeheight_2019_2023.csv). Briefly, the weir level (cm) was intermittently recorded (weekly to monthly). The date and time stamp from each measurement was used to identify the closest pressure reading for both the WVWA and VT pressure sensors. Separate rating curves were developed for the WVWA and VT sensors to convert pressure to gauge height (cm). Gauge height was then converted to (m) and used to calculate discharge as described above. 
 
-1. 6 June 2019 to 24 Aug 2020: Using gauge height measurements take throughout 10 June 2019 to 6 Jul 2020, a separate rating curve was developed for the WVWA (gauge height = 63.163 x pressure - 8.7014) and VT (gauge height = 70.640 x pressure - 5.6633) data from 6 June 2019 to 24 Aug 2020.  
+Multiple rating curves have been developed over the time period of this dataset. Rating curves were developed using correlations between gauge height and pressure measured for each of the installed pressure sensors (WVWA and VT) and gauge height observations are included as a supplementary dataset, Inflow_gaugeheight_2019_2023.csv. Briefly, the weir level (cm) was intermittently recorded (weekly to monthly). The date and time stamp from each measurement was used to identify the closest pressure reading for both the WVWA and VT pressure sensors. Separate rating curves were developed for the WVWA and VT sensors to convert pressure to gauge height (cm). Gauge height was then converted to (m) and used to calculate discharge as described above. 
+
+1. 6 June 2019 to 24 Aug 2020: Using gauge height measurements taken throughout 10 June 2019 to 6 Jul 2020, a separate rating curve was developed for the WVWA (gauge height = 63.163 x pressure - 8.7014) and VT (gauge height = 70.640 x pressure - 5.6633) data from 6 June 2019 to 24 Aug 2020.  
 
 2. 24 Aug 2020 to 02 Sep 2020: On 20 Jul 2020, there was a rapid drop in pressure measured at the weir. On 10 Aug 2020, field crew personnel noted the weir had been breached. Thus, both pressure sensors (WVWA and VT) were removed from the weir on 13 Aug 2020 and were re-installed on 24 Aug 2020 after the weir had been fixed. 
 A rating curve was developed for the time period from 24 Aug 2020 to 02 Sep 2020 for both the WVWA (gauge height = 53.191 x pressure - 1.0851) and VT (gauge height = 58.140 x pressure + 2.9302) sensors. 
 
 3. 02 Sep 2020 to 08 Nov 2021: On 02 Sep 2020, the pressure transducers (WVWA and VT) were moved again to prevent sediment burial. Therefore, a third rating curve was developed from 02 Sep 2020 to 08 Nov 2021 for both the WVWA (gauge height = 69.021 x pressure + 0.812) and VT (gauge height = 71.993 x pressure + 5.801) sensors when batteries in the WVWA pressure sensor were replaced. 
 
-4. 08 Nov 2021 to 09 May 2022: Another rating curve was developed from 08 Nov 2021 to 09 May 2022 when the weir was dredged WVWA (gauge height = 84.52082 x pressure -6.381252) and VT (gauge height = 84.86239 x pressure + 1.719037).  
+4. 08 Nov 2021 to 09 May 2022: Another rating curve was developed from 08 Nov 2021 to 09 May 2022 when the weir was dredged by the WVWA (gauge height = 84.52082 x pressure -6.381252) and VT (gauge height = 84.86239 x pressure + 1.719037).  
 
-5. 09 May 2022 to 05 Jun 2023: Subsequent rating curves were made for VT sensor from 09 May 2022 to 16 Nov 2022 VT (gauge height = 71.6103 x pressure + 2.413) and 16 Nov 2022 to 01 Apr 2023 (gauge height = 76.02339 x pressure + 1.032). 01 April is when the VT sensor malfunctioned. The sensors were moved to inspect the VT sensor on 05 Jun 2023. For the WVWA senor a rating curve was developed from 09 May 2022 to 05 Jun 2023 (gauge height = 72.8922 x pressure -5.220). 
+5. 09 May 2022 to 05 Jun 2023: Subsequent rating curves were made for the VT sensor from 09 May 2022 to 16 Nov 2022 VT (gauge height = 71.6103 x pressure + 2.413) and 16 Nov 2022 to 01 Apr 2023 (gauge height = 76.02339 x pressure + 1.032). The VT sensor malfunctioned on 01 April 2023. The sensors were moved to inspect the VT sensor on 05 Jun 2023. For the WVWA senor a rating curve was developed from 09 May 2022 to 05 Jun 2023 (gauge height = 72.8922 x pressure -5.220). 
 
-6. 05 Jun 2023 to 10 Jul 2023: On 05 Jun 2023 and again on 10 Jul 2023 the sensors were moved. First to inspect the VT sensor and then to replace it (SN: 29010799). For the VT sensor there were no observations during this time. FOr the WVWA sensor a rating curve was developed (gauge height = 10.5263 x pressure + 7.453).
+6. 05 Jun 2023 to 10 Jul 2023: The sensors were moved on 05 Jun 2023 and again on 10 Jul 2023 to inspect the VT sensor and then to replace it (SN: 29010799). For the VT sensor there were no observations during this time. For the WVWA sensor a rating curve was developed (gauge height = 10.5263 x pressure + 7.453).
 
-7. 10 Jul 2023 to 13 Jul 2023: On 13 Jul 2023 the sensors were moved to put the VT sensor at another site to get water level. Rating curves were made, VT (gauge height = 83.333 x pressure -13.833) and WVWA (gauge height = 125.00000 x pressure -25.500)
+7. 10 Jul 2023 to 13 Jul 2023: On 13 Jul 2023 the sensors were moved to put the VT sensor at another site to get water level. New rating curves were made: VT (gauge height = 83.333 x pressure -13.833) and WVWA (gauge height = 125.00000 x pressure -25.500)
 
-8. 13 Jul 2023 to 07 Aug 2023: The VT sensor was replaced on 17 Jul 2023 but this did not interfere with the WVWA sensors. The sensors were moved on 07 Aug 2023 to dredge the weir. Rating curves were made for VT from 17 Jul 2023 to 07 Aug 2023 (gauge height = 142.85714 x pressure -28.857) and WVWA from 13 Jul 2023 to 07 Aug 2023 (gauge height = 76.923 x pressure -16.077)
+8. 13 Jul 2023 to 07 Aug 2023: The VT sensor was replaced on 17 Jul 2023 but this did not interfere with the WVWA sensor. The sensors were moved on 07 Aug 2023 to dredge the weir. Rating curves were made for the VT sensor from 17 Jul 2023 to 07 Aug 2023 (gauge height = 142.85714 x pressure -28.857) and for the WVWA sensor from 13 Jul 2023 to 07 Aug 2023 (gauge height = 76.923 x pressure -16.077).
 
-9. 14 Aug 2023 to current: The sensors were returned to the stream on 14 Aug 2023. The WVWA was in the wrong position and it was fixed on 21 Aug 2023. Rating curves were made for VT (gauge height = 68.4821 x pressure -6.985) and WVWA(gauge height = 47.37394 x pressure + 1.230)
+9. 14 Aug 2023 to current: The sensors were returned to the weir on 14 Aug 2023. The WVWA sensor was in the wrong position and it was fixed on 21 Aug 2023. Rating curves were made for VT (gauge height = 68.4821 x pressure -6.985) and WVWA (gauge height = 47.37394 x pressure + 1.230).
 
 The rating curve is calculated in the Inflow_qaqc_2013_2023.R script and the time period for each rating curve is in the Inflow_maintenancelog_2013_2023.csv under RATING.  As new observations from the gauge height (see Inflow_GaugeHeight_2019_2023.csv) are added the current rating curve will be updated each year. 
 
-From 08 Nov 2021 to 16 Nov 2022 the VT sensor was about 2.3 cm higher than the WVWA senor which resulted in lower estimated flow. We converted cm to psi using the relationship 1psi = 2.31 ft. from the Campbell Scientific CS451 Manual. So, we added 0.033 psi to all observations from the VT_Pressure_psia observations and flagged with a 1 for- value corrected to account for artificial increase in pressure after sensor maintenance.
+From 08 Nov 2021 to 16 Nov 2022 the VT sensor was about 2.3 cm higher than the WVWA senor which resulted in lower estimated flow. We converted cm to psi using the relationship 1psi = 2.31 ft. from the Campbell Scientific CS451 Manual. So, we added 0.033 psi to all observations from the VT_Pressure_psia observations and flagged with a 1 for "value corrected to account for artificial increase in pressure after sensor maintenance".
 
+### Other Maintenance
 
-### Other Maintenance/ Sensors
-Campbell Scientific CS451 (Campbell Scientific, Logan, Utah, USA)
-SN: 5318 22 Apr 2019 - 10 Jul 2023
-SN: 29010799 10 Jul 2023 - current
+Missing Data Gaps:
 
-All other maintenance issues can be found in the Inflow_maintenancelog_2013_2023.csv. 
+This section includes data gaps greater than 15 minutes between observations.
 
-A note on using the QAQC files: We created a function to QAQC the observations and calculate flow (Inflow_qaqc_2013_2023.R). This function is used in Inflow_inspection_2013_2023.Rmd which is an R Markdown file that uses the QAQC function, identifies data gaps, and creates QAQC plots. 
+WVWA sensors: 20 Mar 2014 08:45 - 28 Apr 2014 06:00, 31 Oct 2016 16:00 - 02 Nov 2016 10:45, 22 Nov 2016 20:00 - 24 Nov 2016 09:30, 29 Nov 2016 20:00 - 01 De 2016 09:45, 03 Dec 2016 14:00 - 05 Dec 2016 10:45, 05 Dec 2016 23:00 - 07 Dec 2016 09:30, 07 Dec 2016 21:45 - 09 Dec 2016 09:45, 17 Dec 2016 19:30 - 19 Dec 2016 13:45, 23 Dec 2016 14:45 - 27 Dec 2016 13:15, 01 Jan 2017 15:45 - 04 Jan 2017 12:45, 05 Jan 2017 14:45 - 07 Jan 2017 14:00, 21 Jan 2017 12:00 - 24 Jan 2017 10:30, 07 Nov 2017 18:00 - 10 Nov 2017 11:00, 14 May 2020 16:45 - 24 Aug 2020 15:15, 21 Jul 2021 14:14 - 25 Oct 2021 14:00, 26 Oct 2021 14:45 - 08 Nov 2021 14:15, 07 Dec 2021 13:00 - 14 Dec 2021 12:00, 05 Jun 2022 22:15 - 27 Jun 2022 09:45, 27 Jun 2022 01:30 - 16 Aug 2022 13:30, 07 Aug 2023 08:45 - 21 Aug 2023 13:30
+
+VT sensor: 20 Jul 2020 09:45 - 24 Aug 2020 15:00, 06 Nov 2022 09:00 - 19 Nov 2022 06:15, 01 Apr 2023 00:00 - 10 Jul 2023 15:30- sensor broken, 13 Jul 2023 08:45 - 17 Jul 2023 13:15, 07 Aug 2023 08:45 - 14 Aug 2023 13:00, 05 Sep 2023 15:00 - 12 Sep 2023 13:45
+
+All other maintenance issues can be found in the Inflow_maintenancelog_2013_2023.csv.
+
+A note on using the QAQC files: We created a function to QAQC the observations and calculate flow (Inflow_qaqc_2013_2023.R). This function is used in Inflow_inspection_2013_2023.Rmd which is an R Markdown file that uses the QAQC function, identifies data gaps, and creates QAQC plots.
 
 ### Data Flags
+
 For 15 May 2013 - 6 June 2019, the weir installed at the inflow was rectangular, and thus very low flows were often not well-resolved by our flow equation. At these times, flow is reported as NA. However, the Falling Creek Reservoir inflow stream generally does have perennial flow.
 
 Flow observations which over-topped the weir (at 27.5 cm) were retained but flagged as 6 in the data set. Flows below the pressure sensors were set to NA and flagged as 3. We note that measurements with multiple flags are coded as a multiple-digit number (e.g., a flag of '12' indicates there was 1 = value down-corrected to account for artificial increase in pressure after sensor maintenance and 2 = sensor malfunction). No delimiter was added to separate flag codes in those columns.
 We added data flags for missing data and when sensors were removed for maintenance, 7 and 8 respectively. 
 
 ### Notes
-The script outputs the slope and intercept, along with low observations and high observations for each rating curve (Inflow_ratingcurve_2013_2023.csv). The outputs are updated in the the methods section each year.  
-The Maintenance log as well as rating curve time periods are published with the data set so it is easier to find the dates and times of sensor issues and when the sensors were moved and rating curves started and ended (Inflow_maintenancelog_2013_2023.csv). 
+
+The rating curve script outputs the slope and intercept, along with low observations and high observations for each rating curve (Inflow_ratingcurve_2013_2023.csv). The outputs are updated in the the methods section each year. 
+
+The Maintenance log as well as rating curve time periods are published with the dataset so it is easier to find the dates and times of sensor issues, when the sensors were moved, and when rating curve equations started and ended (Inflow_maintenancelog_2013_2023.csv). 
 
 Please note: When pulling the file via EDI's API, we recommend using the function "read.csv" instead of "read_csv". The function 'read_csv' identifies the columns for the VT data and associated flags  as "logical" instead of "double" due to >100 NA's at the beginning of the dataset. This is avoided when using the function "read.csv".
 
+### Sensors:
+
+Campbell Scientific CS451 (Campbell Scientific, Logan, Utah, USA) manual: https://s.campbellsci.com/documents/us/manuals/cs451-cs456.pdf SN: 5318 (22 Apr 2019 - 10 Jul 2023) SN: 29010799 (10 Jul 2023 - current)
+
+INW Aquistar PT2X pressure sensor (INW, Kirkland, Washington, USA) mnaual: https://www.seametrics.com/wp-content/uploads/LT-14310r25-20220822-PT2X-Instr-1.pdf Barometric pressure sensor: SN: 21204020 (2013-current) In water pressure sensor: SN: 21309003 (2013-current)
+
 ### References:
+
 Gerling, A. B., R. G. Browne, P. A. Gantzer, M. H. Mobley, J. C. Little, and C. C. Carey. 2014. First report of the successful operation of a side stream supersaturation hypolimnetic oxygenation system in a eutrophic, shallow reservoir. Water Research 67: 129-143. DOI: 10.1016/j.watres.2014.09.002
 014.09.002

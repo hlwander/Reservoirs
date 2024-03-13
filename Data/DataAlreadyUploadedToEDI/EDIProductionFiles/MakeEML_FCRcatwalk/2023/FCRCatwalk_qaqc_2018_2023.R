@@ -1,7 +1,7 @@
 # Title: QAQC function for the FCR Catwalk
 # Author: Adrienne Breef-Pilz
-# Created: Jan. 2023
-# Edited: 25 Jan 2024
+# Created: July 2020 (orignially call temp_oxy_chla_qaqc.R)
+# Edited: 12 Feb 2024
 
 # This function:
 # 1. Read in the files and maintenance log
@@ -27,7 +27,7 @@
 qaqc_fcr <- function(data_file,
                      data2_file, 
                      maintenance_file, 
-                     output_file, 
+                     output_file = 'fcre-waterquality_L1.csv', 
                      start_date = NULL, 
                      end_date = NULL)
 {
@@ -75,6 +75,45 @@ qaqc_fcr <- function(data_file,
   
   # Bind the streaming data and the manual downloads together so we can get any missing observations 
   catdata <-bind_rows(catdata,catdata2)
+
+   ### This was needed for the EDI publishing in 2021 and 
+  # if you start with the all the raw files you will will need to run this section.
+  # Need to run this section before removing duplicates
+  
+  # #### 2. Fix timezone issues when changed to EST #########
+  # #Fix the timezone issues  
+  # #time was changed from GMT-4 to GMT-5 on 15 APR 19 at 10:00
+  # #have to seperate data frame by year and record because when the time was changed 10:00-10:40 were recorded twice
+  # #once before the time change and once after so have to seperate and assign the right time. 
+  
+  if(is.null(output_file)){
+    before<-catdata%>%
+      filter(DateTime<ymd_hms("2019-04-15 10:50:00", tz="UTC"))%>%
+      filter(DateTime<ymd_hms("2019-04-15 10:50:00", tz="UTC") & RECORD < 32879)
+    
+    
+   # #now put into GMT-5 from GMT-4
+    before$DateTime<-force_tz(as.POSIXct(before$DateTime), tz = "Etc/GMT+5") #get dates aligned
+    before$DateTime<-with_tz(force_tz(before$DateTime,"Etc/GMT+4"), "Etc/GMT+5") #pre time change data gets assigned proper timezone then corrected to GMT -5 to match the rest of the data set
+    
+    # list of RECORD obs that are already in the before section
+    rec <- c(32874:32878)
+    
+    #filter after the time change 
+    after=catdata%>%
+      filter(DateTime>ymd_hms("2019-04-15 09:50:00", tz="UTC"))%>%
+      # filter out the observations that were on the cusps and are in the before record
+      filter(!(RECORD %in% rec & DateTime>ymd_hms("2019-04-15 09:50:00", tz="UTC") &DateTime<ymd_hms("2019-04-15 10:50:00", tz="UTC")))
+      
+    
+    # Get all dates in the same timezone so they merge nicely
+    after$DateTime<-force_tz(as.POSIXct(after$DateTime), tzone = "Etc/GMT+5")
+    
+    
+    #merge before and after so they are one dataframe in GMT-5 
+    catdata=bind_rows(before, after)
+    
+  }
   
   # There are going to be lots of duplicates so get rid of them
   catdata <- catdata[!duplicated(catdata$DateTime), ]
@@ -132,44 +171,6 @@ qaqc_fcr <- function(data_file,
       filter(TIMESTAMP_end >= start_date)
   }
   
-  
-  
-  ### This was needed for the EDI publishing in 2021 and 
-  # if you start with the all the raw files you will will need to run this section
-  
-  # #### 2. Fix timezone issues when changed to EST #########
-  # #Fix the timezone issues  
-  # #time was changed from GMT-4 to GMT-5 on 15 APR 19 at 10:00
-  # #have to seperate data frame by year and record because when the time was changed 10:00-10:40 were recorded twice
-  # #once before the time change and once after so have to seperate and assign the right time. 
-  # before=catdata%>%
-  #   filter(DateTime<"2019-04-15 6:50")%>%
-  #   filter(DateTime<"2019-04-15 6:50" & RECORD < 32879)#Don't know how to change timezones so just subtract 4 from the time we want
-  # 
-  # 
-  # #now put into GMT-5 from GMT-4
-  # before$DateTime<-as.POSIXct(strptime(before$DateTime, "%Y-%m-%d %H:%M"), tz = "Etc/GMT+5") #get dates aligned
-  # before$DateTime<-with_tz(force_tz(before$DateTime,"Etc/GMT+4"), "Etc/GMT+5") #pre time change data gets assigned proper timezone then corrected to GMT -5 to match the rest of the data set
-  # 
-  # 
-  # #filter after the time change 
-  # after=catdata%>%
-  #   filter(DateTime>"2019-04-15 05:50")%>%
-  #   slice(-c(1,3,5,7,9))
-  # 
-  # 
-  # after$DateTime<-as.POSIXct(strptime(after$DateTime, "%Y-%m-%d %H:%M"), tz = "Etc/GMT+5")#change or else after is off by an hour
-  # 
-  # 
-  # #merge before and after so they are one dataframe in GMT-5 but give it a UTC timestamp because it makes QAQC easier.
-  # # So the data are in EST but labeled UTC. 
-  # 
-  # catdata=rbind(before, after)
-  # 
-  # catdata=catdata[!duplicated(catdata$DateTime), ]
-  # 
-  # catdata$DateTime<-as.POSIXct(strptime(catdata$DateTime, "%Y-%m-%d %H:%M:%S"), tz = "UTC")
-  
   ##### 3. Create Flag columns and flag missing values and ones less than 0 #####
   
   # remove NaN data at beginning when data when no sensors were connected to the data logger
@@ -205,6 +206,11 @@ qaqc_fcr <- function(data_file,
   
   
   # modify catdata based on the information in the log   
+
+   if(nrow(log)==0){
+     print('No Maintenance Events Found...')
+
+   } else {
   
   for(i in 1:nrow(log))
   {
@@ -405,6 +411,7 @@ qaqc_fcr <- function(data_file,
       catdata[Time_adj_Temp, flag_cols[flag_cols%in%Temp]] <- flag
     }
   }
+ }    
   #### 5. Fill in non adjusted DO values ######
   # Fill in adjusted DO values that didn't get changed. If the value didn't get changed then it is the same as values from the 
   # non adjusted columns

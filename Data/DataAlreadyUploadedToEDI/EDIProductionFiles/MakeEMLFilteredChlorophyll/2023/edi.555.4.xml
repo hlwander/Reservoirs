@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="edi.555.4" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd" system="edi">
+  <access authSystem="https://pasta.edirepository.org/authentication" order="allowFirst" scope="document">
+    <allow>
+      <principal>uid=ccarey,o=EDI,dc=edirepository,dc=org</principal>
+      <permission>all</permission>
+    </allow>
+    <allow>
+      <principal>public</principal>
+      <permission>read</permission>
+    </allow>
+  </access>
+  <dataset>
+    <title>Filtered chlorophyll a time series for Beaverdam Reservoir, Carvins Cove Reservoir, Claytor Lake, Falling Creek Reservoir, Gatewood Reservoir, Smith Mountain Lake, Spring Hollow Reservoir in southwestern Virginia, and Lake Sunapee in Sunapee, New Hampshire, USA during 2014-2023</title>
+    <creator>
+      <individualName>
+        <givenName>Cayelan</givenName>
+        <givenName>C.</givenName>
+        <surName>Carey</surName>
+      </individualName>
+      <organizationName>Virginia Tech</organizationName>
+      <electronicMailAddress>cayelan@vt.edu</electronicMailAddress>
+      <userId directory="https://orcid.org">https://orcid.org/0000-0001-8835-4476</userId>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Adrienne</givenName>
+        <surName>Breef-Pilz</surName>
+      </individualName>
+      <organizationName>Virginia Tech</organizationName>
+      <electronicMailAddress>abreefpilz@vt.edu</electronicMailAddress>
+      <userId directory="https://orcid.org">https://orcid.org/0000-0002-6759-0063</userId>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Kathryn</givenName>
+        <givenName>K.</givenName>
+        <surName>Hoffman</surName>
+      </individualName>
+      <organizationName>Virginia Tech</organizationName>
+      <electronicMailAddress>kkhoffman@vt.edu</electronicMailAddress>
+      <userId directory="https://orcid.org">https://orcid.org/0000-0002-2063-8269</userId>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Barbara</givenName>
+        <givenName>R.</givenName>
+        <surName>Niederlehner</surName>
+      </individualName>
+      <organizationName>Virginia Tech</organizationName>
+      <electronicMailAddress>bniederl@vt.edu</electronicMailAddress>
+      <userId directory="https://orcid.org">https://orcid.org/0000-0002-6933-336X</userId>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>George</givenName>
+        <surName>Haynie</surName>
+      </individualName>
+      <organizationName>Virginia Tech</organizationName>
+      <electronicMailAddress>georgeh0919@vt.edu</electronicMailAddress>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Ryan</givenName>
+        <surName>Keverline</surName>
+      </individualName>
+      <organizationName>Virginia Tech</organizationName>
+      <electronicMailAddress>rkeverline01@vt.edu</electronicMailAddress>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Michael</givenName>
+        <surName>Kricheldorf</surName>
+      </individualName>
+      <organizationName>Virginia Tech</organizationName>
+      <electronicMailAddress>mkricheldorf@vt.edu</electronicMailAddress>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Evelyn</givenName>
+        <surName>Tipper</surName>
+      </individualName>
+      <organizationName>Virginia Tech</organizationName>
+      <electronicMailAddress>etipper@vt.edu</electronicMailAddress>
+    </creator>
+    <pubDate>2024-03-01</pubDate>
+    <abstract>
+      <para>Water column chlorophyll a was analyzed from 2014 to 2023 in seven freshwater reservoirs in southwestern Virginia (VA), USA, and one freshwater lake in central New Hampshire (NH), USA. These waterbodies are: Beaverdam Reservoir (Vinton, VA), Carvins Cove Reservoir (Roanoke, VA), Claytor Lake (Pulaski, VA), Falling Creek Reservoir (Vinton, VA), Gatewood Reservoir (Pulaski, VA), Smith Mountain Lake (Bedford, VA), Spring Hollow Reservoir (Salem, VA), and Lake Sunapee (Sunapee, NH). Beaverdam, Carvins Cove, Falling Creek, and Spring Hollow Reservoirs are owned and operated by the Western Virginia Water Authority as primary or secondary drinking water sources for Roanoke, Virginia; Gatewood Reservoir is a drinking water source for the Town of Pulaski, Virginia; and Smith Mountain Lake is jointly treated by the Bedford Regional Water Authority and the Western Virginia Water Authority as a drinking water source for Franklin County, Virginia. Claytor Lake is managed for hydroelectric power generation by the Appalachian Power Company. Lake Sunapee is a glacially-formed lake known for its oligotrophic water quality. The dataset consists of depth profiles of chlorophyll a samples generally measured at the deepest site of each reservoir adjacent to the dam or at the buoy site of Lake Sunapee. The water column samples were collected approximately fortnightly from March-April and weekly from May-October at Falling Creek Reservoir and Beaverdam Reservoir, approximately fortnightly from May-August in most years at Carvins Cove Reservoir, approximately fortnightly from May-August in Gatewood and Spring Hollow Reservoirs from 2014-2016, approximately fortnightly from May-August of 2014 in Smith Mountain Lake, sporadically from May-August of 2014 in Claytor Lake, and sporadically from June-August of 2021 and 2022 in Lake Sunapee. Additional chlorophyll a samples were collected at multiple upstream and inflow sites along tributaries to Beaverdam and Falling Creek Reservoirs in summer 2019. The water samples collected were analyzed for both phaeophytin and chlorophyll a to quantify and correct for degraded phytoplankton within the sample. </para>
+    </abstract>
+    <keywordSet>
+      <keyword>Virginia Tech</keyword>
+      <keyword>Stream Team</keyword>
+      <keyword>Carey Lab</keyword>
+      <keyword>Western Virginia Water Authority</keyword>
+      <keyword>Falling Creek Reservoir</keyword>
+      <keyword>filtered chlorophyll</keyword>
+      <keyword>manual chlorophyll</keyword>
+      <keyword>Beaverdam Reservoir</keyword>
+      <keyword>Carvins Cove Reservoir</keyword>
+      <keyword>Spring Hollow Reservoir</keyword>
+      <keyword>Gatewood Reservoir</keyword>
+      <keyword>Smith Mountain Lake</keyword>
+      <keyword>Claytor Lake</keyword>
+      <keyword>Lake Sunapee</keyword>
+      <keyword>Virginia Reservoirs LTREB</keyword>
+      <keyword>LTREB</keyword>
+      <keyword>Virginia Reservoirs</keyword>
+      <keyword>BVR</keyword>
+      <keyword>CCR</keyword>
+      <keyword>FCR</keyword>
+      <keyword>SHR</keyword>
+      <keyword>GWR</keyword>
+      <keyword>CLY</keyword>
+      <keyword>SNP</keyword>
+      <keywordThesaurus>carey lab controlled vocabulary</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword>Lake</keyword>
+      <keyword>Reservoir</keyword>
+      <keywordThesaurus>cuahsi controlled vocabulary</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword>chlorophyll</keyword>
+      <keyword>chlorophyll a</keyword>
+      <keyword>plankton</keyword>
+      <keyword>phytoplankton</keyword>
+      <keyword>algae</keyword>
+      <keyword>phaeophytin</keyword>
+      <keywordThesaurus>lter controlled vocabulary</keywordThesaurus>
+    </keywordSet>
+    <additionalInfo>
+      <para>CCC developed and led the reservoir monitoring program 2013-present, and oversaw data collection during this time. KKH and ABP co-led sample analysis and data processing. ABP led field monitoring, automated the datastream, wrote the QAQC script, and developed new workflows for chlorophyll data processing based on methods from BRN. BRN developed the analysis method, and trained all co-authors on analytical chemistry instruments, analyses, and QAQC. RK, MK, GH, and ET contributed to fieldwork, labwork, and digitizing data. KKH developed the visual inspection script and led data publishing for 2023.</para>
+      <para>Acknowledgments and historical contributions: This data package has been iteratively updated over time and builds on the many historical contributions of co-authors listed in previous revisions. We thank the Western Virginia Water Authority for providing access to these sites, the Reservoir Group for contributing to fieldwork, Dexter Howard for lab work, and Cecelia Wood and Dexter Howard for helpful reviews of this data package.</para>
+    </additionalInfo>
+    <intellectualRights>
+      <para>This information is released under the Creative Commons license - Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data (\"Data User\" herein) is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available \"as is.\" The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you.
+</para>
+    </intellectualRights>
+    <coverage>
+      <geographicCoverage>
+        <geographicDescription>Beaverdam Reservoir is located in Vinton, Virginia, USA</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-79.824834</westBoundingCoordinate>
+          <eastBoundingCoordinate>-79.813848</eastBoundingCoordinate>
+          <northBoundingCoordinate>37.322865</northBoundingCoordinate>
+          <southBoundingCoordinate>37.311961</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Carvins Cove Reservoir is located in Roanoke, Virginia, USA</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-79.978642</westBoundingCoordinate>
+          <eastBoundingCoordinate>-79.944052</eastBoundingCoordinate>
+          <northBoundingCoordinate>37.409127</northBoundingCoordinate>
+          <southBoundingCoordinate>37.365345</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Claytor Lake is located in Pulaski, Virginia, USA</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-80.74543</westBoundingCoordinate>
+          <eastBoundingCoordinate>-80.576912</eastBoundingCoordinate>
+          <northBoundingCoordinate>37.086718</northBoundingCoordinate>
+          <southBoundingCoordinate>36.967031</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Falling Creek Reservoir is located in Vinton, Virginia, USA</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-79.839249</westBoundingCoordinate>
+          <eastBoundingCoordinate>-79.836009</eastBoundingCoordinate>
+          <northBoundingCoordinate>37.309589</northBoundingCoordinate>
+          <southBoundingCoordinate>37.30266</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Gatewood Reservoir is located in Pulaski, Virginia, USA</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-80.89188</westBoundingCoordinate>
+          <eastBoundingCoordinate>-80.858492</eastBoundingCoordinate>
+          <northBoundingCoordinate>37.054358</northBoundingCoordinate>
+          <southBoundingCoordinate>37.03819</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Smith Mountain Lake is located in Bedford, Franklin and Pittsylvania, Virginia, USA</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-79.726699</westBoundingCoordinate>
+          <eastBoundingCoordinate>-79.522078</eastBoundingCoordinate>
+          <northBoundingCoordinate>37.158577</northBoundingCoordinate>
+          <southBoundingCoordinate>37.002455</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Spring Hollow Reservoir is located in Salem, Virginia, USA</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-80.179076</westBoundingCoordinate>
+          <eastBoundingCoordinate>-80.170407</eastBoundingCoordinate>
+          <northBoundingCoordinate>37.231092</northBoundingCoordinate>
+          <southBoundingCoordinate>37.217594</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Lake Sunapee is located in Sunapee, New Hampshire, USA</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-72.08948</westBoundingCoordinate>
+          <eastBoundingCoordinate>-72.033127</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.431481</northBoundingCoordinate>
+          <southBoundingCoordinate>43.321181</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>2014-04-18</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2023-12-04</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+    </coverage>
+    <maintenance>
+      <description>ongoing</description>
+    </maintenance>
+    <contact>
+      <individualName>
+        <givenName>Cayelan</givenName>
+        <givenName>C.</givenName>
+        <surName>Carey</surName>
+      </individualName>
+      <organizationName>Virginia Tech</organizationName>
+      <electronicMailAddress>cayelan@vt.edu</electronicMailAddress>
+      <userId directory="https://orcid.org">https://orcid.org/0000-0001-8835-4476</userId>
+    </contact>
+    <methods>
+      <methodStep>
+        <description>
+          <para>SAMPLING TIMES AND LOCATION</para>
+          <para>Sampling occurred between the hours of 9:00 and 15:00 EST and are denoted in the DateTime column as 12:00. In 2014-2016, water column samples were collected approximately fortnightly from March-April and weekly from May-October at Falling Creek Reservoir (FCR) and Beaverdam Reservoir (BVR), approximately fortnightly from May-August at Carvins Cove Reservoir, and approximately fortnightly from May-August in Gatewood and Spring Hollow Reservoirs. In 2014, samples were also collected approximately fortnightly from May-August in Smith Mountain Lake and sporadically from May-August in Claytor Lake. In 2018-2023, routine monitoring focused on 1.6 m at BVR and FCR, with sporadic sampling in CCR and SNP in June-August. In 2019, additional chlorophyll a samples were collected at multiple upstream and inflow sites along tributaries to FCR and BVR. </para>
+          <para>SAMPLE COLLECTION AND EQUIPMENT</para>
+          <para>Unfiltered water samples were collected at the following depths for each reservoir or lake: 0.1, 1.5, 3, 3.5, 4, 5, 6, 6.5, 6.8, 7, 7.5, 9, and 12 meters within Beaverdam Reservoir, which has a maximum depth (Zmax) of 13 meters at full pond; 0.1, 5, 6, 12, 14, 18, 19, 20, and 21 meters within Carvins Cove Reservoir, which has a Zmax of 21.3 meters at full pond; 0.1, 5, 6, 7, 30, and 34 meters within Claytor Lake Reservoir, which has a Zmax of 35 meters; 0.1, 1, 1.6, 2, 2.8, 3.8, 4, 4.1, 4.5, 5, 6, 6.2, 7, and 9 meters within Falling Creek Reservoir, which has a Zmax of 9.3 meters at full pond; 0.1, 4, 5, 6, 8, 9, 10, 12, 13, 13.5 and 14 meters within Gatewood Reservoir, which has a Zmax of 14 meters;  0.1, 6, 7, 8, 25, 28 and 30 meters within Smith Mountain Lake Reservoir, which has a Zmax of ~61 meters; 0.1, 5, 7, 8, 14, 25, 28 and 31 meters within Spring Hollow Reservoir, which has a Zmax of &gt;60 meters; and 0.1, 1, and 9 meters within Lake Sunapee, which has a Zmax of 33 meters. A 4-L Van Dorn water sampler was used to collect samples (Wildco, Yulee, Florida, USA) which were stored in opaque 2-L high-density polyethylene bottles. Samples were refrigerated and filtered within 48 hours of collection with GF/C filters and filters were immediately frozen after filtration. Samples were generally analyzed within 4 months of collection date.</para>
+          <para>CHEMICAL ANALYSES AND EQUIPMENT</para>
+          <para>Samples were extracted using a 96% ethanol solution at room temperature for 3-24 hours (Wasmund et al. 2006) and then analyzed by spectrophotometric analysis. To quantify the concentration of phaeophytin within the sample, the analysis adopts the acidification recommendation of Parker et al. (2016), in which 240 microliters of 0.1 N HCl was added to the sample. The sample was homogenized and left to sit for 90 seconds for samples analyzed through 2018, or 120 seconds for samples analyzed after 2019. Samples were quantified using the monochromatic spectrophotometric method for chlorophyll a after correction for the presence of pheopigments, to provide a metric of "live" phytoplankton at the time of collection (Lorenzen 1967). The phaeophytin concentration (a metric of "dead" but still fluorescing phytoplankton) is also reported. In 2014, total chlorophyll a was corrected for phaeophytin but values for phaeophytin were lost during digitization. Samples were deemed below detection based on the difference between values quantified before and after acidification. Both extraction and analysis were performed in the absence of direct light to prevent the degradation of chlorophyll a. Samples collected were not always analyzed, leading to occasional incomplete water column profiles for certain dates within the dataset.</para>
+          <para>FLAGGED DATA</para>
+          <para>Data are flagged in the maintenance log, and flags are applied to the data using the QAQC script. Starting in 2023, all phaeophytin values that were below zero were set to zero throughout the dataset. Prior to 2022, duplicated field and method replicate values were not flagged. In 2022-current, duplicate values were averaged and flagged with 5. If the values were averaged and the pigment in the extract of the averaged sample was below detection then these columns were flagged as 45, for a flag of 4 for pigment below detection and a flag of 5 for averaged duplicate value. For both chlorophyll and phaeophytin: 0=Value acceptable. No flag; 1 = Sample below detection; 2 = Sample not taken; 3 = Duplicate check failed; 4 = Pigment in extract below detection (&lt;34 ug/L); 5  = Duplicate values were averaged. For phaeophytin only: 45 = Values were averaged and the pigment in the extract of the averaged sample was below detection</para>
+          <para>SCRIPTS AND DATA</para>
+          <para>This data package includes 1 data file (FiltChla_2014_2023), QAQC R script (FiltChla_qaqc_2023_2023), maintenance log (FiltChla_maintenancelog_2014_2023), visual inspection R script (FiltChla_inspection_2014_2023), and sampling sites (site_descriptions). The QAQC script includes functions to process data, remove outliers, and apply the maintenance log to clean the data files included in the package in 2023 only; the visual inspection script provides code for plotting the data files.</para>
+          <para>ADDITIONAL INFO</para>
+          <para>Multiple whole-ecosystem experiments have been conducted at Falling Creek Reservoir, including intermittent operation of hypolimnetic oxygenation (HOx) and pulsed epilimnetic mixing (EM) engineering systems. We encourage you to contact the lead author of the data package for more information.</para>
+          <para>REFERENCES</para>
+          <para>Lorenzen, C.J. 1967.  Determinations of chlorophyll and pheo-pigments:  spectrophotometric equations.  Limnol. Oceanogr. 12:343-346.</para>
+          <para>Parker, S. P., W. B. Bowden, and M. B. Flinn.  2016.  The effect of acid strength and postacidification reaction time on the determination of chlorophyll a in ethanol extracts of aquatic periphyton.  Limnology and Oceanography: Methods 14:839-852.</para>
+          <para>Wasmund, N., I. Topp, and D. Schories.  2006.  Optimising the storage and extraction of chlorophyll samples.  Oceanologica 48(1):125-144.
+</para>
+        </description>
+      </methodStep>
+    </methods>
+    <project>
+      <title>No project title to report</title>
+      <personnel>
+        <individualName>
+          <givenName>Cayelan</givenName>
+          <givenName>C.</givenName>
+          <surName>Carey</surName>
+        </individualName>
+        <organizationName>Virginia Tech</organizationName>
+        <electronicMailAddress>cayelan@vt.edu</electronicMailAddress>
+        <userId directory="https://orcid.org">https://orcid.org/0000-0001-8835-4476</userId>
+        <role>Principal Investigator</role>
+      </personnel>
+      <funding>Western Virginia Water Authority</funding>
+      <relatedProject>
+        <title>Collaborative Research: Consequences of changing oxygen availability for carbon cycling in freshwater ecosystems</title>
+        <personnel>
+          <individualName>
+            <givenName>Cayelan</givenName>
+            <givenName>C.</givenName>
+            <surName>Carey</surName>
+          </individualName>
+          <organizationName>Virginia Tech</organizationName>
+          <electronicMailAddress>cayelan@vt.edu</electronicMailAddress>
+          <userId directory="https://orcid.org">https://orcid.org/0000-0001-8835-4476</userId>
+          <role>Principal Investigator</role>
+        </personnel>
+        <funding>National Science Foundation 1753639</funding>
+      </relatedProject>
+      <relatedProject>
+        <title>LTREB: Integrating real-time open data pipelines and forecasting to quantify ecosystem predictability at day to decadal scales</title>
+        <personnel>
+          <individualName>
+            <givenName>Cayelan</givenName>
+            <givenName>C.</givenName>
+            <surName>Carey</surName>
+          </individualName>
+          <organizationName>Virginia Tech</organizationName>
+          <electronicMailAddress>cayelan@vt.edu</electronicMailAddress>
+          <userId directory="https://orcid.org">https://orcid.org/0000-0001-8835-4477</userId>
+          <role>Principal Investigator</role>
+        </personnel>
+        <funding>National Science Foundation 2327030</funding>
+      </relatedProject>
+      <relatedProject>
+        <title>Collaborative Research: URoL:ASC: Applying rules of life to forecast emergent behavior of phytoplankton and advance water quality management</title>
+        <personnel>
+          <individualName>
+            <givenName>Cayelan</givenName>
+            <givenName>C.</givenName>
+            <surName>Carey</surName>
+          </individualName>
+          <organizationName>Virginia Tech</organizationName>
+          <electronicMailAddress>cayelan@vt.edu</electronicMailAddress>
+          <userId directory="https://orcid.org">https://orcid.org/0000-0001-8835-4478</userId>
+          <role>Principal Investigator</role>
+        </personnel>
+        <funding>National Science Foundation 2318861</funding>
+      </relatedProject>
+      <relatedProject>
+        <title>Collaborative Research: CIBR: Cyberinfrastructure Enabling End-to-End Workflows for Aquatic Ecosystem Forecasting</title>
+        <personnel>
+          <individualName>
+            <givenName>Renato</givenName>
+            <givenName>J.</givenName>
+            <surName>Figueiredo</surName>
+          </individualName>
+          <organizationName>University of Florida</organizationName>
+          <electronicMailAddress>renato@acis.ufl.edu</electronicMailAddress>
+          <userId directory="https://orcid.org">https://orcid.org/0000-0001-9841-6060</userId>
+          <role>Principal Investigator</role>
+        </personnel>
+        <funding>National Science Foundation 1933102</funding>
+      </relatedProject>
+      <relatedProject>
+        <title>Collaborative Research: CIBR: Cyberinfrastructure Enabling End-to-End Workflows for Aquatic Ecosystem Forecastin Forecasting</title>
+        <personnel>
+          <individualName>
+            <givenName>Cayelan</givenName>
+            <givenName>C.</givenName>
+            <surName>Carey</surName>
+          </individualName>
+          <organizationName>Virginia Tech</organizationName>
+          <electronicMailAddress>cayelan@vt.edu</electronicMailAddress>
+          <userId directory="https://orcid.org">https://orcid.org/0000-0001-8835-4476</userId>
+          <role>Principal Investigator</role>
+        </personnel>
+        <funding>National Science Foundation 1933016</funding>
+      </relatedProject>
+    </project>
+    <dataTable>
+      <entityName>FiltChla_2014_2023</entityName>
+      <entityDescription>Filtered chlorophyll a data at multiple sites</entityDescription>
+      <physical>
+        <objectName>FiltChla_2014_2023.csv</objectName>
+        <size unit="bytes">47077</size>
+        <authentication method="MD5">aff7e0e170b5126744bd9ebd75c045d4</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>Reservoir</attributeName>
+          <attributeDefinition>Three-letter code corresponding to sampled reservoir;  BVR = Beaverdam Reservoir, CCR = Carvins Cove Reservoir, CLY = Claytor Lake Reservoir, FCR = Falling Creek Reservoir, GWR = Gatewood Reservoir, SHR = Spring Hollow Reservoir, SML = Smith Mountain Lake Reservoir, SNP = Lake Sunapee</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>BVR</code>
+                    <definition>Beaverdam Reservoir</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>CCR</code>
+                    <definition>Carvins Cove Reservoir</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>CLY</code>
+                    <definition>Claytor Lake Reservoir</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>FCR</code>
+                    <definition>Falling Creek Reservoir</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>GWR</code>
+                    <definition>Gatewood Reservoir</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>SHR</code>
+                    <definition>Spring Hollow Reservoir</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>SML</code>
+                    <definition>Smith Mountain Lake</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>SNP</code>
+                    <definition>Lake Sunapee</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>value is missing</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Site</attributeName>
+          <attributeDefinition>Sampling site within each reservoir</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+                <bounds>
+                  <minimum exclusive="false">1</minimum>
+                  <maximum exclusive="false">200</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>value is missing</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>DateTime</attributeName>
+          <attributeDefinition>Date of sampling. All sampling times are set to 12:00pm EST. See methods for more details.</attributeDefinition>
+          <storageType>date</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD hh:mm:ss</formatString>
+              <dateTimeDomain/>
+            </dateTime>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>value is missing</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Depth_m</attributeName>
+          <attributeDefinition>Water depth where the sample was collected</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.1</minimum>
+                  <maximum exclusive="false">34</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>value is missing</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Chla_ugL</attributeName>
+          <attributeDefinition>Chlorophyll a concentration</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>microgramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">158</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>value is missing</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Pheo_ugL</attributeName>
+          <attributeDefinition>Phaeophytin concentration</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>microgramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">36.6</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>value is missing</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Flag_Chla_ugL</attributeName>
+          <attributeDefinition>Data flag for chlorophyll a; 0=Value acceptable. No flag, 1= Sample below detection, 2 = Sample not taken, 3=Duplicate check failed, 4=Pigment in extract below detection (&lt;34 ug/L), 5=Duplicate values were averaged</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>0</code>
+                    <definition>Value acceptable. No flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>1</code>
+                    <definition>Sample below detection</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>2</code>
+                    <definition>Sample not taken</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>3</code>
+                    <definition>Duplicate check failed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>4</code>
+                    <definition>Pigment in extract below detection (&lt;34 ug/L)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>5</code>
+                    <definition>Duplicate values were averaged</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>value is missing</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Flag_Pheo_ugL</attributeName>
+          <attributeDefinition>Data flag for phaeophytin;  0=Value acceptable. No flag, 1= Sample below detection, 2 = Sample not taken, 3=Duplicate check failed, 4=Pigment in extract below detection (&lt;34 ug/L), 45=Pigment in extract below detection (&lt;34 ug/L) and duplicate values were averaged</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>0</code>
+                    <definition>Value acceptable. No flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>1</code>
+                    <definition>Sample below detection</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>2</code>
+                    <definition>Sample not taken</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>3</code>
+                    <definition>Duplicate check failed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>4</code>
+                    <definition>Pigment in extract below detection (&lt;34 ug/L)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>45</code>
+                    <definition>Pigment in extract below detection (&lt;34 ug/L) and duplicate values were averaged</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>5</code>
+                    <definition>Duplicate values were averaged</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>value is missing</codeExplanation>
+          </missingValueCode>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>1013</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>site_descriptions</entityName>
+      <entityDescription>Sampling site descriptions with latitude and longitude</entityDescription>
+      <physical>
+        <objectName>site_descriptions.csv</objectName>
+        <size unit="bytes">4420</size>
+        <authentication method="MD5">77aba38b323e7a7ec83047f01000ec01</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>Reservoir</attributeName>
+          <attributeDefinition>Three-letter code corresponding to sampled reservoir</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>BVR</code>
+                    <definition>Beaverdam Reservoir</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>CLY</code>
+                    <definition>Claytor Lake Reservoir</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>CCR</code>
+                    <definition>Carvins Cove Reservoir</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>FCR</code>
+                    <definition>Falling Creek Reservoir</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>GWR</code>
+                    <definition>Gatewood Reservoir</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>SHR</code>
+                    <definition>Spring Hollow Reservoir</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>SML</code>
+                    <definition>Smith Mountain Lake Reservoir</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>SNP</code>
+                    <definition>Lake Sunapee</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>value is missing</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Site</attributeName>
+          <attributeDefinition>Sampling site within each reservoir</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+                <bounds>
+                  <minimum exclusive="false">1</minimum>
+                  <maximum exclusive="false">200</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>value is missing</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Site_description</attributeName>
+          <attributeDefinition>Description of sampling site</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Description of sampling site</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Latitude</attributeName>
+          <attributeDefinition>Site latitude</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>degree</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">37.04137</minimum>
+                  <maximum exclusive="false">43.391308</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>value is missing</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Longitude</attributeName>
+          <attributeDefinition>Site longitude</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>degree</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-80.8632991493157</minimum>
+                  <maximum exclusive="false">-72.058973</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>value is missing</codeExplanation>
+          </missingValueCode>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>28</numberOfRecords>
+    </dataTable>
+    <otherEntity>
+      <entityName>FiltChla_qaqc_2023_2023</entityName>
+      <entityDescription>Script used to collate and flag data for publication</entityDescription>
+      <physical>
+        <objectName>FiltChla_qaqc_2023_2023.R</objectName>
+        <size unit="bytes">17344</size>
+        <authentication method="MD5">73d147904d13a942b702ad3cacc9e7d0</authentication>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>text/plain</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+      </physical>
+      <entityType>unknown</entityType>
+    </otherEntity>
+    <otherEntity>
+      <entityName>FiltChla_inspection_2014_2023</entityName>
+      <entityDescription>Markdown file used to visualize data for QA/QC</entityDescription>
+      <physical>
+        <objectName>FiltChla_inspection_2014_2023.Rmd</objectName>
+        <size unit="bytes">12431</size>
+        <authentication method="MD5">10ac24db88ab96c13938c5dffe7d2433</authentication>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>text/x-markdown</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+      </physical>
+      <entityType>unknown</entityType>
+    </otherEntity>
+    <otherEntity>
+      <entityName>FiltChla_maintenancelog_2014_2023</entityName>
+      <entityDescription>Maintenance Log through 2023</entityDescription>
+      <physical>
+        <objectName>FiltChla_maintenancelog_2014_2023.csv</objectName>
+        <size unit="bytes">2535</size>
+        <authentication method="MD5">04685d6b2b6e6d08899f3cff108f2742</authentication>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>text/csv</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+      </physical>
+      <entityType>unknown</entityType>
+    </otherEntity>
+  </dataset>
+  <additionalMetadata>
+    <metadata>
+      <emlEditor>
+        <app>EMLassemblyline</app>
+        <release>3.5.5</release>
+      </emlEditor>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>

@@ -1,17 +1,11 @@
 givenName	middleInitial	surName	organizationName	electronicMailAddress	userId	role	projectTitle	fundingAgency	fundingNumber
 Cayelan	C.	Carey	Virginia Tech	cayelan@vt.edu	0000-0001-8835-4476	contact			
-Cayelan	C.	Carey	Virginia Tech	cayelan@vt.edu	0000-0001-8835-4476	PI		Western Virginia Water Authority	  
+Cayelan	C.	Carey	Virginia Tech	cayelan@vt.edu	0000-0001-8835-4476	PI	N/A	Western Virginia Water Authority	N/A
 Cayelan	C.	Carey	Virginia Tech	cayelan@vt.edu	0000-0001-8835-4476	PI	Collaborative Research: Consequences of changing oxygen availability for carbon cycling in freshwater ecosystems	National Science Foundation	DEB-1753639
 Cayelan	C.	Carey	Virginia Tech	cayelan@vt.edu	0000-0001-8835-4476	PI	Collaborative Research: CIBR: Cyberinfrastructure Enabling End-to-End Workflows for Aquatic Ecosystem Forecasting	National Science Foundation	DBI-1933016
+Renato	J.	Figueiredo	Virginia Tech	renato@ece.ufl.edu	0000-0001-8835-4476	PI	Collaborative Research: CIBR: Cyberinfrastructure Enabling End-to-End Workflows for Aquatic Ecosystem Forecasting	National Science Foundation	DBI-1933016
 Cayelan	C.	Carey	Virginia Tech	cayelan@vt.edu	0000-0001-8835-4476	PI	LTREB: Integrating real-time open data pipelines and forecasting to quantify ecosystem predictability at day to decadal scales	National Science Foundation	DEB-2327030
 Cayelan	C.	Carey	Virginia Tech	cayelan@vt.edu	0000-0001-8835-4476	PI	Collaborative Research: URoL:ASC: Applying rules of life to forecast emergent behavior of phytoplankton and advance water quality management	National Science Foundation	DEB-2318861
-Renato	J.	Figueiredo	University of Florida	renato@ece.ufl.edu	0000-0001-8835-4476	PI	Collaborative Research: CIBR: Cyberinfrastructure Enabling End-to-End Workflows for Aquatic Ecosystem Forecasting	National Science Foundation	DBI-1933016
 Cayelan	C.	Carey	Virginia Tech	Cayelan@vt.edu	0000-0001-8835-4476	creator			
 Abigail	S. L.	Lewis	Virginia Tech	aslewis@vt.edu	0000-0001-9933-4542	creator			
 Adrienne		Breef-Pilz	Virginia Tech	abreefpilz@vt.edu	0000-0002-6759-0063	creator			
-									
-									
-									
-									
-									
-									

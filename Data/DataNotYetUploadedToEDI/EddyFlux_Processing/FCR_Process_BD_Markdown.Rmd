@@ -145,7 +145,8 @@ Count how many initial NAs are in CO2 and CH4 data. Without any data processing!
 
 # Read in Met file from EDI
 met_all <- read_csv("https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74bbb3b86ea293e5c52136347fbb0",
-                    col_select=c("DateTime","BP_Average_kPa","AirTemp_C_Average","RH_percent",
+                    col_select=c("DateTime","PAR_umolm2s_Average","PAR_Total_mmol_m2","BP_Average_kPa",
+                                 "AirTemp_C_Average","RH_percent","Rain_Total_mm",
                                  "ShortwaveRadiationUp_Average_W_m2", "ShortwaveRadiationDown_Average_W_m2",
                                   "InfraredRadiationUp_Average_W_m2","InfraredRadiationDown_Average_W_m2",
                                   "Albedo_Average_W_m2","WindSpeed_Average_m_s","WindDir_degrees"))%>%
@@ -156,7 +157,8 @@ met_all <- read_csv("https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74b
 # Bind files together if need to use current file
 
 met_curr <- read_csv("https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-metstation-data-qaqc/FCRmet_L1.csv",
-                   col_select=c("DateTime","BP_Average_kPa","AirTemp_C_Average","RH_percent",
+                   col_select=c("DateTime","PAR_umolm2s_Average","PAR_Total_mmol_m2","BP_Average_kPa",
+                                 "AirTemp_C_Average","RH_percent","Rain_Total_mm",
                                  "ShortwaveRadiationUp_Average_W_m2", "ShortwaveRadiationDown_Average_W_m2",
                                   "InfraredRadiationUp_Average_W_m2","InfraredRadiationDown_Average_W_m2",
                                   "Albedo_Average_W_m2","WindSpeed_Average_m_s","WindDir_degrees"))%>%
@@ -173,6 +175,7 @@ met_all$Breaks <- ymd_hms(as.character(met_all$Breaks))
 
 # Average met data to the 30 min mark (excluding Total Rain and Total PAR)
 met_30 <- met_all %>% 
+ select(-c(Rain_Total_mm,PAR_Total_mmol_m2))%>%
   group_by(Breaks) %>% 
   summarise_all(mean,na.rm=TRUE)
 ```
@@ -716,7 +719,7 @@ Eproc$sMDSGapFill('LE', V1 = 'Rg', V2 = 'VPD', V3 = 'Tair', FillAll = TRUE)
 ```{r ustar distribution}
 # Estimate ustar threshold distribution by bootstrapping the data
 Eproc$sEstimateUstarScenarios(UstarColName = 'Ustar', NEEColName = 'NEE', RgColName= 'Rg',
-                              nSample = 200L, probs = c(0.05, 0.5, 0.95))
+                              nSample = 200L, probs = c(0.05, 0.7, 0.95))
 ```
 
 ```{r Bootstrap uncertainity beefed up}
@@ -861,3 +864,4 @@ fcr_gf%>%
   theme(text = element_text(size=20))
 
 ggsave("FCR_CH4_Daily_Average.jpg", width=11, height=7, units="in")
+```

@@ -2,7 +2,7 @@
 # Use in the markdown to create plots and for plotly to work
 # Author: Adrienne Breef-Pilz
 # First developed: 28 December 24
-# Last edited: 06 Jan 24
+# Last edited: 27 Jan 24
 
 all_plot<-function(Var, 
                    y_lab,  # This label can take an expression aka have the proper degrees C, 
@@ -32,6 +32,9 @@ all_plot<-function(Var,
     
   }else{
     switch_raw=F
+    
+    # rename the file
+    qaqc_current <- current
   }
   
   

@@ -153,14 +153,14 @@ make_eml(
                              'Rating curve information: slope, intercept, low pressure, and high pressure'),
   other.entity = c("Inflow_qaqc_2013_2023.R","Inflow_inspection_2013_2023.Rmd", 'Plot_function.R'),
   #other.entity.name = c("Inflow_QAQC_function_2013_2022","Inflow_QAQC_Plots_2013_2022","Inflow_GaugeHeight_2013_2022"),
-  other.entity.description =c("Automated function for QAQC and calculating flow reading. Also known as L1 function",
+  other.entity.description =c("Automated function for QAQC and calculating flow. Also known as L1 function",
                                       'Visual inspection script to check the data before writing to csv',
-                                      "Function to create plots for streaming sensors"),
+                                      "Function to create qaqc plots that can use plotly or not"),
   temporal.coverage = c("2013-05-15", "2023-12-31"),
   maintenance.description = 'ongoing',
   user.id = 'ccarey',
   user.domain = 'EDI',
-  package.id = 'edi.923.12')
+  package.id = 'edi.923.15')
 
 
 

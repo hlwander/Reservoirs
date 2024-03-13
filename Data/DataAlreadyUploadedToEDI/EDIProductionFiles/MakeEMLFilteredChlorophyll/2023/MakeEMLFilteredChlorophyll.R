@@ -155,14 +155,14 @@ make_eml(
   data.table = c("FiltChla_2014_2023.csv", 'site_descriptions.csv'),
   data.table.name = c("FiltChla_2014_2023", 'site_descriptions'), 
   data.table.description = c("Filtered chlorophyll a data at multiple sites","Sampling site descriptions with latitude and longitude" ),
-  other.entity = c('filt_chla_qaqc_2023.R', 'FiltChla_inspection_2014_2023.Rmd', 'Filt_Chla_Maintenance_Log.csv'),
-  other.entity.name = c("filt_chla_qaqc_2023", 'FiltChla_inspection_2014_2023', 'Filt_Chla_Maintenance_Log'),
+  other.entity = c('FiltChla_qaqc_2023_2023.R', 'FiltChla_inspection_2014_2023.Rmd', 'FiltChla_maintenancelog_2014_2023.csv'),
+  other.entity.name = c("FiltChla_qaqc_2023_2023", 'FiltChla_inspection_2014_2023', 'FiltChla_maintenancelog_2014_2023'),
   other.entity.description = c('Script used to collate and flag data for publication', 'Markdown file used to visualize data for QA/QC', 
                                'Maintenance Log through 2023'), 
   user.id = 'ccarey',
   user.domain = 'EDI',
-  package.id = 'edi.52.23') #THIS IS FOR STAGING
-  #package.id = 'edi.555.3') # ONLY USE THIS FOR ACTUAL PUBLISHING 
+  #package.id = 'edi.52.23') #THIS IS FOR STAGING
+  package.id = 'edi.555.4') # ONLY USE THIS FOR ACTUAL PUBLISHING 
 
 # make_eml(path = "./Data/DataAlreadyUploadedToEDI/EDIProductionFiles/MakeEML_ManualDischarge/2021",
 #          dataset.title = "Manually-collected discharge data for multiple inflow tributaries entering Falling Creek Reservoir, Beaverdam Reservoir, and Carvin's Cove Reservoir, Vinton and Roanoke, Virginia, USA from 2019-2021",

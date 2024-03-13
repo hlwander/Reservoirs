@@ -1,5 +1,5 @@
 attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
 Reservoir	Three-letter code corresponding to sampled reservoir	categorical	dimensionless		NA	value is missing
 Site	Sampling site within each reservoir	categorical	dimensionless		NA	value is missing
-DateTime	Date and time of sampling. All data were collected in the Eastern Standard Time zone of the U.S.A.	Date		YYYY-MM-DD hh:mm:ss	NA	value is missing
+DateTime	Date and time of sampling. All data were collected in the Eastern Standard Time zone of the U.S.A., with daylight savings not observed	Date		YYYY-MM-DD hh:mm:ss	NA	value is missing
 GageHeight_cm	Observation of the height of the water at the weir from the staff gauge	numeric	centimeter		NA	value is missing

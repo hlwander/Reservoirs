@@ -2,8 +2,8 @@ attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCo
 Reservoir	Three-letter code corresponding to sampled reservoir	categorical	dimensionless		NA	value is missing
 Site	Sampling site within each reservoir	categorical	dimensionless		NA	value is missing
 DataStream	Code corresponding to if the entry is for a maintenance issue or for the rating curve 	categorical	dimensionless		NA	value is missing
-TIMESTAMP_start	Date and time maintenance began. All data were collected in the GMT -5 time zone (Eastern Standard Time), with daylight savings time not observed.	Date		YYYY-MM-DD hh:mm:ss	NA	Maintenance started before the sensors were out
-TIMESTAMP_end	Date and time maintenance ended. All data were collected in the GMT -5 time zone (Eastern Standard Time), with daylight savings time not observed.	Date		YYYY-MM-DD hh:mm:ss	NA	Maintenance is on going and has no current end date
+TIMESTAMP_start	Date and time maintenance began. All data were collected in the GMT -5 time zone (Eastern Standard Time), No time zone shifts were observed throughout the dataset.	Date		YYYY-MM-DD hh:mm:ss	NA	Maintenance started before the sensors were out
+TIMESTAMP_end	Date and time maintenance ended. All data were collected in the GMT -5 time zone (Eastern Standard Time), No time zone shifts were observed throughout the dataset.	Date		YYYY-MM-DD hh:mm:ss	NA	Maintenance is on going and has no current end date
 start_parameter	Name of start variable in the sequence corresponding to catwalk sensor string data table names	categorical	dimensionless		NA	There is only one parameter flagged
 end_parameter	Name of end variable in the sequence corresponding to catwalk sensor string data table names	categorical	dimensionless		NA	There is only one parameter flagged
 flag	Data flag applied to associated variable	categorical	dimensionless		NA	value is missing

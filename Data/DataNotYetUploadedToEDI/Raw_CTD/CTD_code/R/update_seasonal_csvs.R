@@ -14,7 +14,7 @@ update_seasonal_csvs <- function(ctd_cast_csvs = "../csv_outputs",
                                  ctd_season_csvs = "../CTD_season_csvs",
                                  intermediate_file_name = "ctd_L0.csv",
                                  start_date = as.Date(paste0(year(Sys.Date()),"-01-01"))) {
-  
+
   # This reads all the files into the R environment
   files = list.files(ctd_cast_csvs, pattern = ".*\\d+.*.csv") #Get all csv files
   files <- files[!grepl("PAR",files)&!grepl("matlab",files)] #That do not include PAR or matlab
@@ -29,23 +29,29 @@ update_seasonal_csvs <- function(ctd_cast_csvs = "../csv_outputs",
                           substr(files,3,4)))
   
   files_to_load <- files[dates >= as.Date(start_date)]
+
   
   # list of column headers that need to be changed if they are still in the data frame
   
   ctd <- map(files_to_load, load_file) %>% #see function below. Using map() makes loading files faster
     dplyr::bind_rows()
+
+  print("Function load_file worked in update_seaonal_csv.R")
   
   write_csv(ctd, paste0(ctd_season_csvs, "/", intermediate_file_name))
 }
 
 #Function to load files
-load_file <- function(file){
+load_file <- function(file,
+                      ctd_cast_csvs="../csv_outputs"){
+  print(file)
   lookup <- c(PAR_umolm2s  = "PAR",
               DescRate_ms  = 'Descent Rate (m/s)',
               DateTime = "Date",
               DOsat_percent = "DO_pSat",
               SpCond_uScm = "Spec_Cond_uScm",
               Turbidity_NTU = "Turb_NTU")
+  
   ctd = read_csv(paste0(ctd_cast_csvs, "/", file), show_col_types = F) 
   location <- sub("^[0-9]*_","",sub("\\.csv","",file))
   sn <- as.numeric(str_extract(location, "\\d{4}"))

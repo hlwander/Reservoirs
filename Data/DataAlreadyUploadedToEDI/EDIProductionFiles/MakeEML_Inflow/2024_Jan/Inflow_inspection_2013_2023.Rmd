@@ -95,7 +95,7 @@ REVIEWERS- If you are reviewing this data package replace the pasta link with th
 
                                                                   ### CHANGE THIS NUMBER BELOW 
                                                                                ##      
-  current_df <-read_csv("https://pasta-s.lternet.edu/package/data/eml/edi/923/12/c065ff822e73c747f378efe47f5af12b")
+  current_df <-read_csv("https://pasta-s.lternet.edu/package/data/eml/edi/923/14/aae7888d68753b276d1623680f81d5de")
  #
  # # Force files from EDI to have an EST timestamp
 
@@ -487,6 +487,7 @@ weirdata%>%
   ggtitle("Compare WVWA flow and VT flow") 
   
 ```
+
 ### Write to CSV
 
 ```{r Make current csv, eval=FALSE, include=FALSE}
@@ -508,7 +509,7 @@ write_csv(current_df, "Inflow_2013_2023.csv")
 download.file("https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-weir-data-qaqc/Weir_MaintenanceLog.csv", "Inflow_maintenancelog_2013_2023.csv")
 
 # Gauge Height
-download.file("https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-weir-data-qaqc/Inflow_Gauge_Height_at_Weir.csv","Inflow_gaugeheight_2019_2023.csv" )
+download.file("https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-weir-data-qaqc/Inflow_Gauge_Height_at_Weir.csv","Inflow_gaugeheight_2019_2023.csv")
 
 # qaqc function
 download.file("https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-weir-data-qaqc/R/qaqc_function.R", "Inflow_qaqc_2013_2023.R")

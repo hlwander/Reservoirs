@@ -4,21 +4,21 @@ DataStream	WEIR	Maintenance or issues with the weir
 Reservoir	FCR	Falling Creek Reservoir
 Site	100	Inflow stream of Falling Creek Reservoir
 end_parameter	VT_Temp_C	Water temperature measured at the weir entering the reservoir by CS451
-end_parameter	WVWA_Flow_cms	"Discharge flow rate derived from the WVWA pressure measured at the weir and weir rating curve. For 15 May 2013 - 6 June 2019 (rectangular weir) see Gerling et al. 2014 for equations. For 7 June 2019 - present (v-notch weir), see equations in metadata."
+end_parameter	WVWA_Flow_cms	Discharge flow rate derived from the WVWA pressure measured at the weir and weir rating curve. For 15 May 2013 - 6 June 2019 (rectangular weir) see Gerling et al. 2014 for equations. For 7 June 2019 - present (v-notch weir), see equations in metadata.
 end_parameter	WVWA_Temp_C	Water temperature measured at the weir entering the reservoir by WVWA
 flag	1	value corrected to account for artificial increase in pressure after sensor maintenance
 flag	100	ID for rating curve from 2013-05-15 16:00:00 EST- 2019-06-07 00:00:00 EST that is the rectangular weir
 flag	101	ID for other rating curves that are calculated in the qaqc function
 flag	14	weir un-plugged demonic intrusion and downcorrected values
 flag	2	sensor malfunction
-flag	24	weir damaged due to weather
+flag	24	sensor malfunction and demonic intrusion
 flag	4	demonic intrusion
 flag	5	value of NA due to leaking at weir
 flag	7	missing observation/not recorded
 flag	8	values removed because of maintenance
-start_parameter	VT_Flow_cms	"Discharge flow rate derived from the VT pressure measured at the weir and weir rating curve. For 22 April 2019 - 6 June 2019 (rectangular weir) see Gerling et al. 2014 for equations. For 7 June 2019 - present (v-notch weir), see equations in metadata."
+start_parameter	VT_Flow_cms	Discharge flow rate derived from the VT pressure measured at the weir and weir rating curve. For 22 April 2019 - 6 June 2019 (rectangular weir) see Gerling et al. 2014 for equations. For 7 June 2019 - present (v-notch weir), see equations in metadata.
 start_parameter	VT_Pressure_psia	Corrected pressure (with atmospheric pressure subtracted) by CS451
 start_parameter	WVWA_Baro_pressure_psi	Atmospheric pressure measured by WVWA INW sensor at the dam of Falling Creek Reservoir
-start_parameter	WVWA_Flow_cms	"Discharge flow rate derived from the WVWA pressure measured at the weir and weir rating curve. For 15 May 2013 - 6 June 2019 (rectangular weir) see Gerling et al. 2014 for equations. For 7 June 2019 - present (v-notch weir), see equations in metadata."
+start_parameter	WVWA_Flow_cms	Discharge flow rate derived from the WVWA pressure measured at the weir and weir rating curve. For 15 May 2013 - 6 June 2019 (rectangular weir) see Gerling et al. 2014 for equations. For 7 June 2019 - present (v-notch weir), see equations in metadata.
 start_parameter	WVWA_Pressure_psi	Uncorrected pressure measured by the WVWA INW sensor at the weir
 start_parameter	WVWA_Pressure_psia	Corrected pressure (with atmospheric pressure subtracted) measured by WVWA INW sensor at the weir

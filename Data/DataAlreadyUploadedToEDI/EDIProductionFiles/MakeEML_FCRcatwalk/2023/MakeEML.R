@@ -170,20 +170,21 @@ make_eml(path = folder,
          in Falling Creek Reservoir, Virginia, USA in 2018-2023",
          data.table = c("FCRCatwalk_2018_2023.csv", 
                         'FCRCatwalk_maintenancelog_2018_2023.csv'),
-         data.table.description = c("Data file of sensor observations from FCR Catwalk", 
-                                    "Maintenance log for FCR catwalk sensors"),
+         data.table.description = c("Data file of sensor observations from FCRCatwalk", 
+                                    "Maintenance log for FCRCatwalk sensors"),
          other.entity = c('FCRCatwalk_qaqc_2018_2023.R', 
                           'FCRCatwalk_inspection_2018_2023.Rmd',
                           'Plot_function.R'),
          other.entity.description = c('Automated function for QAQC. Also known as L1 function', 
-                                      'Visual inspection script to check the data before writing to CSV',
+                                      'Visual inspection script to check the data before writing to csv',
                                       'Function to create plots for streaming sensors'),
          temporal.coverage = c("2018-07-05", "2023-12-31"),
          #geographic.description = "Southwestern Virginia, USA, North America",
          #geographic.coordinates = c("37.309589","-79.836009","37.30266","-79.839249"),
          maintenance.description = "ongoing",
          user.id =  "ccarey",
-         package.id = "edi.518.26", #### this is the one that I need to change and the one for staging!!!
+         #package.id = "edi.518.27", #### this is the one that I need to change and the one for staging!!!
+         package.id = "edi.271.8", #### this is the one for the production enviornment
          user.domain = 'EDI')
 
 ## Step 8: Check your data product! ####
@@ -213,23 +214,23 @@ make_eml(path = folder,
 # ALL OTHER entries in the make_eml() command should match what you ran above,
 # in step 7
 
-make_eml(path = folder,
-         data.path = folder,
-         eml.path = folder,
-         dataset.title = "Time series of high-frequency sensor data measuring water temperature, dissolved oxygen, pressure, conductivity, 
-         specific conductance, total dissolved solids, chlorophyll a, phycocyanin, fluorescent dissolved organic matter, and turbidity at discrete depths 
-         in Falling Creek Reservoir, Virginia, USA in 2018-2022",
-         data.table = c("FCR_Catwalk_EDI_2018_2022.csv", 'FCR_CAT_MaintenanceLog_2018_2022.csv'),
-         data.table.description = c("FCR Catwalk Sensor String", "Maintenance log for catwalk sensors"),
-         other.entity = c('FCR_catwalk_QAQC_function_2018_2022.R', 'QAQC_catwalk_2018_2022.Rmd' ),
-         other.entity.description = c('automated function to do QAQC which is sourced in final QAQC script', 'Final script to run QAQC'),
-         temporal.coverage = c("2018-07-05", "2022-12-31"),
-         #geographic.description = "Southwestern Virginia, USA, North America",
-         #geographic.coordinates = c("37.309589","-79.836009","37.30266","-79.839249"),
-         maintenance.description = "ongoing",
-         user.id =  "ccarey",
-         package.id = "edi.271.7", #### make sure this matches the original catwalk file, which you are just updating, DO NOT RESERVE NEW PACKAGE ID
-         user.domain = 'EDI')
+# make_eml(path = folder,
+#          data.path = folder,
+#          eml.path = folder,
+#          dataset.title = "Time series of high-frequency sensor data measuring water temperature, dissolved oxygen, pressure, conductivity, 
+#          specific conductance, total dissolved solids, chlorophyll a, phycocyanin, fluorescent dissolved organic matter, and turbidity at discrete depths 
+#          in Falling Creek Reservoir, Virginia, USA in 2018-2022",
+#          data.table = c("FCR_Catwalk_EDI_2018_2022.csv", 'FCR_CAT_MaintenanceLog_2018_2022.csv'),
+#          data.table.description = c("FCR Catwalk Sensor String", "Maintenance log for catwalk sensors"),
+#          other.entity = c('FCR_catwalk_QAQC_function_2018_2022.R', 'QAQC_catwalk_2018_2022.Rmd' ),
+#          other.entity.description = c('automated function to do QAQC which is sourced in final QAQC script', 'Final script to run QAQC'),
+#          temporal.coverage = c("2018-07-05", "2022-12-31"),
+#          #geographic.description = "Southwestern Virginia, USA, North America",
+#          #geographic.coordinates = c("37.309589","-79.836009","37.30266","-79.839249"),
+#          maintenance.description = "ongoing",
+#          user.id =  "ccarey",
+#          package.id = "edi.271.7", #### make sure this matches the original catwalk file, which you are just updating, DO NOT RESERVE NEW PACKAGE ID
+#          user.domain = 'EDI')
 
 # Once your xml file with your PUBLISHED package.id is Done, return to the 
 # EDI Production environment (https://portal.edirepository.org/nis/home.jsp)
@@ -252,15 +253,15 @@ make_eml(path = folder,
 
 
 
-make_eml(path = "C:/Users/wwoel/Desktop/Reservoirs/Data/DataAlreadyUploadedToEDI/EDIProductionFiles/MakeEMLCatwalk",
-         dataset.title = "Time series of high-frequency sensor data measuring water temperature, dissolved oxygen, conductivity, specific conductivity, total dissolved solids, chlorophyll a, phycocyanin, and fluorescent dissolved organic matter at discrete depths in Falling Creek Reservoir, Virginia, USA in 2018",
-         data.files = "Catwalk_EDI_2020.csv",
-         data.files.description = "Catwalk Sensor String",
-         temporal.coverage = c("2018-07-05", "2018-12-18"),
-         geographic.description = "Southwestern Virginia, USA, North America",
-         maintenance.description = "ongoing",
-         user.id = c("carylab1", "ccarey"),
-         package.id = "edi.271.2", #### this is the one that I need to change!!!
-         affiliation = c("EDI", "EDI"))
+# make_eml(path = "C:/Users/wwoel/Desktop/Reservoirs/Data/DataAlreadyUploadedToEDI/EDIProductionFiles/MakeEMLCatwalk",
+#          dataset.title = "Time series of high-frequency sensor data measuring water temperature, dissolved oxygen, conductivity, specific conductivity, total dissolved solids, chlorophyll a, phycocyanin, and fluorescent dissolved organic matter at discrete depths in Falling Creek Reservoir, Virginia, USA in 2018",
+#          data.files = "Catwalk_EDI_2020.csv",
+#          data.files.description = "Catwalk Sensor String",
+#          temporal.coverage = c("2018-07-05", "2018-12-18"),
+#          geographic.description = "Southwestern Virginia, USA, North America",
+#          maintenance.description = "ongoing",
+#          user.id = c("carylab1", "ccarey"),
+#          package.id = "edi.271.2", #### this is the one that I need to change!!!
+#          affiliation = c("EDI", "EDI"))
 
 

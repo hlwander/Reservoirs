@@ -3,6 +3,7 @@ Reservoir	Three-letter code corresponding to sampled reservoir	categorical
 Site	Sampling site within each reservoir (see site_descriptions.csv file included in this data package)	numeric	dimensionless			
 DateTime	"Date and time of sampling. All data were collected in the eastern time zone of the U.S.A., with daylight savings time observed"	Date		YYYY-MM-DD hh:mm:ss		
 Depth_m	Water depth where the sensor reading was measured; negative values indicate height above the water’s surface 	numeric	meter		NA	No data
+SN	CTD serial number (see Methods)	categorical				
 Temp_C	Water temperature	numeric	celsius		NA	No data
 DO_mgL	Dissolved oxygen (DO) concentration	numeric	milligramsPerLiter		NA	No data
 DOsat_percent	Dissolved oxygen (DO) percent saturation	numeric	percent		NA	No data
@@ -13,16 +14,22 @@ Turbidity_NTU	Turbidity	numeric	dimensionless		NA	No data
 pH	Water pH	numeric	dimensionless		NA	No data
 ORP_mV	Reduction potential	numeric	millivolt		NA	No data
 PAR_umolm2s	Photosynthetically active radiation	numeric	micromolePerMeterSquaredPerSecond		NA	No data
+CDOM_ugL	Colored dissolved organic matter	numeric	microgramsPerLiter		NA	No data
+Phycoerythrin_ugL	Phycoerythrin	numeric	microgramsPerLiter		NA	No data
+Phycocyanin_ugL	Phycocyanin	numeric	microgramsPerLiter		NA	No data
 DescRate_ms	Descent rate	numeric	metersPerSecond		NA	No data
-Flag_DateTime	"Data flag for date time; 0=Not suspect, 7=Datetime missing time (date is meaningful but not time)"	numeric	dimensionless			
-Flag_Temp_C	"Data flag for temperature; 0=Not suspect, 1=Sample not taken, 2=Instrument malfunction, 3=Sample below detection, 4=Negative value set to 0, 5=No sensor on CTD"	numeric	dimensionless			
-Flag_DO_mgL	"Data flag for dissolved oxygen (DO) concentration; 0=Not suspect, 1=Sample not taken, 2=Instrument malfunction, 3=Sample below detection, 4=Negative value set to 0, 5=No sensor on CTD, 6=Measurement removed (above water)"	numeric	dimensionless			
-Flag_DOsat_percent	"Data flag for dissolved oxygen (DO) concentration; 0=Not suspect, 1=Sample not taken, 2=Instrument malfunction, 3=Sample below detection, 4=Negative value set to 0, 5=No sensor on CTD, 6=Measurement removed (above water)"	numeric	dimensionless			
-Flag_Cond_uScm	"Data flag for conductivity; 0=Not suspect, 1=Sample not taken, 2=Instrument malfunction, 3=Sample below detection, 4=Negative value set to NA, 5=No sensor on CTD, 6=Measurement removed (above water)"	numeric	dimensionless			
-Flag_SpCond_uScm	"Data flag for specific conductivity; 0=Not suspect, 1=Sample not taken, 2=Instrument malfunction, 3=Sample below detection, 4=Negative value set to NA, 5=No sensor on CTD, 6=Measurement removed (above water)"	numeric	dimensionless			
-Flag_Chla_ugL	"Data flag for chlorophyll a; 0=Not suspect, 1=Sample not taken, 2=Instrument malfunction, 3=Sample below detection, 4=Negative value set to 0, 5=No sensor on CTD, 6=Measurement removed (above water)"	numeric	dimensionless			
-Flag_Turbidity_NTU	"Data flag for turbidity; 0=Not suspect, 1=Sample not taken, 2=Instrument malfunction, 3=Sample below detection, 4=Negative value set to 0, 5=No sensor on CTD, 6=Measurement removed (above water)"	numeric	dimensionless			
-Flag_pH	"Data flag for pH; 0=Not suspect, 1=Sample not taken, 2=Instrument malfunction, 3=Sample below detection, 4=Negative value set to 0, 5=No sensor on CTD, 6=Measurement removed (above water), 8=Measurement outside of expected range but retained in dataset"	numeric	dimensionless			
-Flag_ORP_mV	"Data flag for ORP; 0=Not suspect, 1=Sample not taken, 2=Instrument malfunction, 3=Sample below detection, 5=No sensor on CTD, 6=Measurement removed (above water)"	numeric	dimensionless			
-Flag_PAR_umolm2s	"Data flag for photosynthetically active radiation (PAR); 0=Not suspect, 1=Sample not taken, 2=Instrument malfunction, 3=Sample below detection, 4=Negative value set to NA, 5=No sensor on CTD"	numeric	dimensionless			
-Flag_DescRate_ms	"Data flag for descent rate; 0=Not suspect, 1=Sample not taken, 2=Instrument malfunction, 5=No sensor on CTD"	numeric	dimensionless			
+Flag_DateTime	Data flag for date time	categorical				
+Flag_Temp_C	Data flag for temperature	categorical				
+Flag_DO_mgL	Data flag for dissolved oxygen (DO) concentration	categorical				
+Flag_DOsat_percent	Data flag for dissolved oxygen (DO) saturation	categorical				
+Flag_Cond_uScm	Data flag for conductivity	categorical				
+Flag_SpCond_uScm	Data flag for specific conductivity	categorical				
+Flag_Chla_ugL	Data flag for chlorophyll a	categorical				
+Flag_Turbidity_NTU	Data flag for turbidity	categorical				
+Flag_pH	Data flag for pH	categorical				
+Flag_ORP_mV	Data flag for ORP	categorical				
+Flag_PAR_umolm2s	Data flag for photosynthetically active radiation (PAR)	categorical				
+Flag_CDOM_ugL	Data flag for CDOM	categorical				
+Flag_Phycoerythrin_ugL	Data flag for Phycoerythrin	categorical				
+Flag_Phycocyanin_ugL	Data flag for Phycocyanin	categorical				
+Flag_DescRate_ms	Data flag for descent rate	categorical				

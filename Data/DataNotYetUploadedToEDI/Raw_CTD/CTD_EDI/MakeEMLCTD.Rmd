@@ -20,37 +20,13 @@ library(tidyverse)
 #install_github("EDIorg/EMLassemblyline")
 library(EMLassemblyline)
 
-# Import Templates ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#template_core_metadata(
- #     path = getwd(),
-  #    license = "CCBY",
-   #   file.type = '.txt',
-    #  write.file = TRUE)
-
-#template_table_attributes(
- #     path = getwd(),
-  #    data.path = getwd(),
-   #   data.table = "CTD_final_2013_2019.csv",
-    #  write.file = TRUE)
-
-
-#Geographic coverage
-#template_geographic_coverage(path = getwd(),
- #                            data.path = getwd(),
-  #                           data.table = "CTD_final_2013_2019.csv",
-   #                          empty = TRUE,
-    #                         write.file = TRUE)
-
-
-# Define Categorical Variables ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#template_categorical_variables(path = "C:/Users/Owner/Dropbox/MakeEMLCTD")
 
 #Install the required googlesheets4 package
-install.packages('googlesheets4')
+#install.packages('googlesheets4')
 #Load the library 
 library(googlesheets4)
 sites <- read_sheet('https://docs.google.com/spreadsheets/d/1TlQRdjmi_lzwFfQ6Ovv1CAozmCEkHumDmbg_L4A2e-8/edit#gid=124442383')
-data<- read_csv("CTD_2013_2022.csv") #This is the line you need to modify!
+data <- read_csv("CTD_2013_2023.csv") #This is the line you need to modify!
 trim_sites = function(data,sites){
   data_res_site=data%>% #Create a Reservoir/Site combo column
     mutate(res_site = trimws(paste0(Reservoir,Site)))
@@ -61,23 +37,29 @@ trim_sites = function(data,sites){
 }
 sites_trimmed = trim_sites(data,sites) 
 write.csv(sites_trimmed,"site_descriptions.csv", row.names=F)# Write to file
-  
-
 
 
 # Make the EML for EDI ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 make_eml(path = getwd(),
-         dataset.title = "Time series of high-frequency profiles of depth, temperature, dissolved oxygen, conductivity, specific conductance, chlorophyll a, turbidity, pH, oxidation-reduction potential, photosynthetic active radiation, and descent rate for Beaverdam Reservoir, Carvins Cove Reservoir, Falling Creek Reservoir, Gatewood Reservoir, and Spring Hollow Reservoir in southwestern Virginia, USA 2013-2022",
-         data.table = c("CTD_2013_2022.csv","site_descriptions.csv"),
-         data.table.name = c("CTD dataset 2013-2022","Descriptions of sample sites"),
-         data.table.description = c("Reservoir CTD dataset","Sample site descriptions"),
-         other.entity = 'QAQC_CTD_2013_2022.Rmd',
-         other.entity.name = 'CTD QAQC script',
-         other.entity.description = c('QAQC script for reference'),
-         temporal.coverage = c("2013-03-07", "2022-12-12"),
+         dataset.title = "Time series of high-frequency profiles of depth, temperature, dissolved oxygen, conductivity, specific conductivity, chlorophyll a, turbidity, pH, oxidation-reduction potential, photosynthetic active radiation, cDOM, phycocyanin, phycoerythrin, and descent rate for Beaverdam Reservoir, Carvins Cove Reservoir, Falling Creek Reservoir, Gatewood Reservoir, and Spring Hollow Reservoir in Southwestern Virginia, USA 2013-2023",
+         data.table = c("CTD_2013_2023.csv",
+                        "site_descriptions.csv"),
+         data.table.name = c("CTD dataset 2013-2023",
+                             "Descriptions of sample sites"),
+         data.table.description = c("Reservoir CTD dataset",
+                                    "Sample site descriptions"),
+         other.entity = c('CTD_QAQC_2018_2023.R', 
+                          "helper_scripts.zip"),
+         other.entity.name = c('QAQC script', 
+                               "Helper scripts"),
+         other.entity.description = c('High-level QAQC script used to process data from 2018-2023 - 
+                                      references scripts in helper_scripts.zip', 
+                                      "Scripts used to compile casts and apply QAQC, 
+                                      as referenced by CTD_QAQC_2018_2023.R"),
+         temporal.coverage = c("2013-03-07", "2023-12-04"),
          maintenance.description = "ongoing",
          user.domain = "EDI",
          user.id = "ccarey",
-         package.id = "edi.200.13") #updated 2022
+         package.id = "edi.1113.1") #staging 2023
 ```
 

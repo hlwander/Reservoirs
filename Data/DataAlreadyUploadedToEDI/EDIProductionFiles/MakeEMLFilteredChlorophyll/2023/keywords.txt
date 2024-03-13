@@ -24,3 +24,10 @@ phaeophytin	lter controlled vocabulary
 Virginia Reservoirs LTREB	carey lab controlled vocabulary
 LTREB	carey lab controlled vocabulary
 Virginia Reservoirs	carey lab controlled vocabulary
+BVR	carey lab controlled vocabulary
+CCR	carey lab controlled vocabulary
+FCR	carey lab controlled vocabulary
+SHR	carey lab controlled vocabulary
+GWR	carey lab controlled vocabulary
+CLY	carey lab controlled vocabulary
+SNP	carey lab controlled vocabulary
