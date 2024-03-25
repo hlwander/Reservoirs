@@ -1,0 +1,5 @@
+Author contribution statement: CCC developed and led the reservoir monitoring program 2013-present. HLW was the point person for running water chemistry analyses and QAQC from 2019-2022 and led the data publication during this time. DWH co-led data publication and QAQC with HLW from 2021-2022. KKH co-led data publication and QAQC in 2023. ABP led the field crew and contributed substantially to sampling from 2021-2022. BRN oversaw all sample analysis in 2020-2022, as well as developed analytical chemistry methods and QAQC procedures and oversaw analytical chemistry instrumentation and training of all co-authors throughout 2013-2022. 
+
+Acknowledgments and historical contributions:
+
+This data package has been iteratively updated over time and builds on the many historical contributions of co-authors listed in previous revisions. We thank the Western Virginia Water Authority for providing access to these sites and the Reservoir Group for contributing to fieldwork. We also thank Mary Lofton for helpful reviews on this data product.

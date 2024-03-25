@@ -14,17 +14,182 @@ pacman::p_load(tidyverse, lubridate, scales, viridis)
 
 ```{r read in current + historic combined file}
 
-new_chem <- read.csv("./Data/DataNotYetUpdloadedToEDI/NutrientData/chem_L1.csv")
+new_chem <- read_csv("./2023_chemistry_collation_final_nocommas.csv") 
 
 old_chem <- read_csv("https://pasta.lternet.edu/package/data/eml/edi/199/11/509f39850b6f95628d10889d66885b76", col_types = cols())
 
-all_chem <- bind_rows(new_chem, old_chem)
+# all_chem <- bind_rows(new_chem, old_chem)
 
 ```
 
+```{r update 2022 with reurns from 2023}
+##copied from last years makeEML 
+
+#### sample that were suppose to be rerun 
+#NOTE - 11 samples need to be rerun with 2023 samples - will need to average/add these data when we publish 2022 field season samples (HLW)
+## Those samples are updated below; one didn't get reurn for right variable: B50 19Sep22 6m SRP
+
+chem_reruns2022 <- new_chem |> 
+  filter(DateTime <= ymd("2023-01-01"))
+
+#F100 5Jul22 0.1m NO3
+old_chem$NO3NO2_ugL[as.Date(old_chem$DateTime)=="2022-07-05" & old_chem$Reservoir=="FCR" & old_chem$Depth_m==0.1 & old_chem$Site==100] <- chem_reruns2022$NO3NO2_ugL[as.Date(chem_reruns2022$DateTime)=="2022-07-05" & chem_reruns2022$Reservoir=="FCR" & chem_reruns2022$Depth_m==0.1 & chem_reruns2022$Site==100]
+
+old_chem$Flag_NO3NO2_ugL[as.Date(old_chem$DateTime)=="2022-07-05" & old_chem$Reservoir=="FCR" & old_chem$Depth_m==0.1 & old_chem$Site==100] <- 0
+
+#F50 2May22 1.6m DOC
+old_chem$DOC_mgL[as.Date(old_chem$DateTime)=="2022-05-02" & old_chem$Reservoir=="FCR" & old_chem$Depth_m==1.6 & old_chem$Site==50] <- chem_reruns2022$DOC_mgL[as.Date(chem_reruns2022$DateTime)=="2022-05-02" & chem_reruns2022$Reservoir=="FCR" & chem_reruns2022$Depth_m==1.6 & chem_reruns2022$Site==50]
+
+old_chem$Flag_DOC_mgL[as.Date(old_chem$DateTime)=="2022-05-02" & old_chem$Reservoir=="FCR" & old_chem$Depth_m==1.6 & old_chem$Site==50] <- 0
+
+#F50 23May22 5m SRP
+old_chem$SRP_ugL[as.Date(old_chem$DateTime)=="2022-05-23" & old_chem$Reservoir=="FCR" & old_chem$Depth_m==5 & old_chem$Site==50] <- chem_reruns2022$SRP_ugL[as.Date(chem_reruns2022$DateTime)=="2022-05-23" & chem_reruns2022$Reservoir=="FCR" & chem_reruns2022$Depth_m==5 & chem_reruns2022$Site==50]
+
+old_chem$Flag_SRP_ugL[as.Date(old_chem$DateTime)=="2022-05-23" & old_chem$Reservoir=="FCR" & old_chem$Depth_m==5 & old_chem$Site==50] <- 0
+
+
+# B50 11Oct22 7m SRP
+old_chem$SRP_ugL[as.Date(old_chem$DateTime)=="2022-10-11" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==7 & old_chem$Site==50] <- chem_reruns2022$SRP_ugL[as.Date(chem_reruns2022$DateTime)=="2022-10-11" & chem_reruns2022$Reservoir=="BVR" & chem_reruns2022$Depth_m==7 & chem_reruns2022$Site==50]
+
+old_chem$Flag_SRP_ugL[as.Date(old_chem$DateTime)=="2022-10-11" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==7 & old_chem$Site==50] <- 0
+
+
+#C50 30Jun22 21m SRP
+old_chem$SRP_ugL[as.Date(old_chem$DateTime)=="2022-06-30" & old_chem$Reservoir=="CCR" & old_chem$Depth_m==21 & old_chem$Site==50] <- chem_reruns2022$SRP_ugL[as.Date(chem_reruns2022$DateTime)=="2022-06-30" & chem_reruns2022$Reservoir=="CCR" & chem_reruns2022$Depth_m==21 & chem_reruns2022$Site==50]
+
+old_chem$Flag_SRP_ugL[as.Date(old_chem$DateTime)=="2022-06-30" & old_chem$Reservoir=="CCR" & old_chem$Depth_m==21 & old_chem$Site==50] <- 0
+
+# C50 19Aug22 20m NH4
+old_chem$NH4_ugL[as.Date(old_chem$DateTime)=="2022-08-19" & old_chem$Reservoir=="CCR" & old_chem$Depth_m==20 & old_chem$Site==50] <- chem_reruns2022$NH4_ugL[as.Date(chem_reruns2022$DateTime)=="2022-08-19" & chem_reruns2022$Reservoir=="CCR" & chem_reruns2022$Depth_m==20 & chem_reruns2022$Site==50]
+
+old_chem$Flag_NH4_ugL[as.Date(old_chem$DateTime)=="2022-08-19" & old_chem$Reservoir=="CCR" & old_chem$Depth_m==20 & old_chem$Site==50] <- 0
+
+
+# C50 17Nov22 21m NO3
+old_chem$NO3NO2_ugL[as.Date(old_chem$DateTime)=="2022-11-17" & old_chem$Reservoir=="CCR" & old_chem$Depth_m==21 & old_chem$Site==50] <- chem_reruns2022$NO3NO2_ugL[as.Date(chem_reruns2022$DateTime)=="2022-11-17" & chem_reruns2022$Reservoir=="CCR" & chem_reruns2022$Depth_m==21 & chem_reruns2022$Site==50]
+ 
+old_chem$Flag_NO3NO2_ugL[as.Date(old_chem$DateTime)=="2022-11-17" & old_chem$Reservoir=="CCR" & old_chem$Depth_m==21 & old_chem$Site==50] <-  0
+
+
+#   B50 21Mar23 0.1, 6, and 9m NO3, 
+chem_reruns2023 <- new_chem |> 
+  filter(DateTime > as.Date("2023-03-20"),
+         DateTime < as.Date("2023-03-22"))
+
+    #0.1
+old_chem$NO3NO2_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==0.1 & old_chem$Site==50] <- chem_reruns2023$NO3NO2_ugL[as.Date(chem_reruns2023$DateTime)=="2023-03-21" & chem_reruns2023$Reservoir=="BVR" & chem_reruns2023$Depth_m==0.1 & chem_reruns2023$Site==50]
+
+old_chem$Flag_NO3NO2_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==0.1 & old_chem$Site==50] <- 0
+     #6
+old_chem$NO3NO2_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==6 & old_chem$Site==50] <- chem_reruns2023$NO3NO2_ugL[as.Date(chem_reruns2023$DateTime)=="2023-03-21" & chem_reruns2023$Reservoir=="BVR" & chem_reruns2023$Depth_m==6 & chem_reruns2023$Site==50]
+
+old_chem$Flag_NO3NO2_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==6 & old_chem$Site==50] <- 0
+    #9
+old_chem$NO3NO2_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==9 & old_chem$Site==50] <- chem_reruns2023$NO3NO2_ugL[as.Date(chem_reruns2023$DateTime)=="2023-03-21" & chem_reruns2023$Reservoir=="BVR" & chem_reruns2023$Depth_m==9 & chem_reruns2023$Site==50]
+
+old_chem$Flag_NO3NO2_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==9 & old_chem$Site==50] <- 0
+
+
+
+#### clean up formatting for 2023 reruns and append old to new
+
+##move 21mar23 tntp to old file so we can reomve those rows of duped data from new file 
+#0.1
+old_chem$TN_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==0.1 & old_chem$Site==50] <- new_chem$TN_ugL[as.Date(new_chem$DateTime)=="2023-03-21" & new_chem$Reservoir=="BVR" & new_chem$Depth_m==0.1 & new_chem$Site==50]
+
+old_chem$Flag_TN_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==0.1 & old_chem$Site==50] <- 0
+
+old_chem$TP_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==0.1 & old_chem$Site==50] <- new_chem$TP_ugL[as.Date(new_chem$DateTime)=="2023-03-21" & new_chem$Reservoir=="BVR" & new_chem$Depth_m==0.1 & new_chem$Site==50]
+
+old_chem$Flag_TP_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==0.1 & old_chem$Site==50] <- 0
+
+#3
+old_chem$TN_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==3 & old_chem$Site==50] <- new_chem$TN_ugL[as.Date(new_chem$DateTime)=="2023-03-21" & new_chem$Reservoir=="BVR" & new_chem$Depth_m==3 & new_chem$Site==50]
+
+old_chem$Flag_TN_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==3 & old_chem$Site==50] <- 0
+
+old_chem$TP_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==3 & old_chem$Site==50] <- new_chem$TP_ugL[as.Date(new_chem$DateTime)=="2023-03-21" & new_chem$Reservoir=="BVR" & new_chem$Depth_m==3 & new_chem$Site==50]
+
+old_chem$Flag_TP_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==3 & old_chem$Site==50] <- 0
+
+#6
+old_chem$TN_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==6 & old_chem$Site==50] <- new_chem$TN_ugL[as.Date(new_chem$DateTime)=="2023-03-21" & new_chem$Reservoir=="BVR" & new_chem$Depth_m==6 & new_chem$Site==50]
+
+old_chem$Flag_TN_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==6 & old_chem$Site==50] <- 0
+
+old_chem$TP_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==6 & old_chem$Site==50] <- new_chem$TP_ugL[as.Date(new_chem$DateTime)=="2023-03-21" & new_chem$Reservoir=="BVR" & new_chem$Depth_m==6 & new_chem$Site==50]
+
+old_chem$Flag_TP_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==6 & old_chem$Site==50] <- 0
+
+#9
+old_chem$TN_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==9 & old_chem$Site==50] <- new_chem$TN_ugL[as.Date(new_chem$DateTime)=="2023-03-21" & new_chem$Reservoir=="BVR" & new_chem$Depth_m==9 & new_chem$Site==50]
+
+old_chem$Flag_TN_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==9 & old_chem$Site==50] <- 0
+
+old_chem$TP_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==9 & old_chem$Site==50] <- new_chem$TP_ugL[as.Date(new_chem$DateTime)=="2023-03-21" & new_chem$Reservoir=="BVR" & new_chem$Depth_m==9 & new_chem$Site==50]
+
+old_chem$Flag_TP_ugL[as.Date(old_chem$DateTime)=="2023-03-21" & old_chem$Reservoir=="BVR" & old_chem$Depth_m==9 & old_chem$Site==50] <- 0
+
+##remove 21mar23 from new file 
+new_chem <- new_chem |> 
+  mutate(Date = as.Date(DateTime)) |> 
+  filter(Date != ymd("2023-03-21")) |> 
+  select(-Date)
+
+##bind all chem together
+allchem <- rbind(old_chem, new_chem)
+
+```
+
+
+
+
+```{r remove suspect values from 2023 that need to be rerun}
+
+#manually remove XX samples from 2023 data pub to be published at a later date after reruns
+# new$NO3NO2_ugL[new$Reservoir=="FCR" & as.Date(new$DateTime)=="2022-07-05" & new$Depth_m==0.1 & new$Site==100] <- NA
+
+
+#replace NA flags with 0
+allchem$Flag_DateTime[is.na(allchem$Flag_DateTime)] <- 0
+allchem$Flag_TN_ugL[is.na(allchem$Flag_TN_ugL)] <- 0
+allchem$Flag_TP_ugL[is.na(allchem$Flag_TP_ugL)] <- 0
+allchem$Flag_NH4_ugL[is.na(allchem$Flag_NH4_ugL)] <- 0
+allchem$Flag_NO3NO2_ugL[is.na(allchem$Flag_NO3NO2_ugL)] <- 0
+allchem$Flag_SRP_ugL[is.na(allchem$Flag_SRP_ugL)] <- 0
+allchem$Flag_DOC_mgL[is.na(allchem$Flag_DOC_mgL)] <- 0
+allchem$Flag_DIC_mgL[is.na(allchem$Flag_DIC_mgL)] <- 0
+allchem$Flag_DC_mgL[is.na(allchem$Flag_DC_mgL)] <- 0
+allchem$Flag_DN_mgL[is.na(allchem$Flag_DN_mgL)] <- 0
+
+
+#add a 1 flag for all NA samples
+allchem$Flag_TN_ugL[is.na(allchem$TN_ugL)] <- 1
+allchem$Flag_TP_ugL[is.na(allchem$TP_ugL)] <- 1
+allchem$Flag_NH4_ugL[is.na(allchem$NH4_ugL)] <- 1
+allchem$Flag_NO3NO2_ugL[is.na(allchem$NO3NO2_ugL)] <- 1
+allchem$Flag_SRP_ugL[is.na(allchem$SRP_ugL)] <- 1
+allchem$Flag_DOC_mgL[is.na(allchem$DOC_mgL)] <- 1
+allchem$Flag_DIC_mgL[is.na(allchem$DIC_mgL)] <- 1
+allchem$Flag_DC_mgL[is.na(allchem$DC_mgL)] <- 1
+allchem$Flag_DN_mgL[is.na(allchem$DN_mgL)] <- 1
+
+allchem$DateTime <- as.character(allchem$DateTime)
+
+write.csv(allchem, "chemistry_2013_2023.csv", row.names = FALSE)
+
+
+```
+
+
+
+
 ```{r 2023 diagnostic plots}
 #date format
-new_chem$DateTime <- as.Date(new_chem$DateTime, "%Y-%m-%d %H:%M:%S")
+allchem$DateTime <- as.Date(allchem$DateTime, "%Y-%m-%d %H:%M:%S")
+
+new_chem <- allchem |> 
+  filter(year(DateTime) == 2023 )
 
 #select columns for plotting
 new_chem <- new_chem [,(names(new_chem) %in% c("Reservoir","Site","DateTime",
@@ -32,7 +197,7 @@ new_chem <- new_chem [,(names(new_chem) %in% c("Reservoir","Site","DateTime",
 
   #### Chemistry diagnostic plots ####
 chemistry_long <- new_chem %>% 
-  gather(metric, value, TP_ugL:DOC_mgL) %>% 
+  gather(metric, value, TN_ugL:DOC_mgL) %>% 
   mutate(month = strftime(DateTime, "%b"))
 
 chemistry_long$value <- as.numeric(chemistry_long$value)
@@ -40,16 +205,20 @@ chemistry_long$value <- as.numeric(chemistry_long$value)
 
 # Plot range of values per constituent for each reservoir; 
 #mean value per sampling day indicated with large black dot
-ggplot(subset(chemistry_long, Site == 50), aes(x = DateTime, y = value, col=Reservoir)) +
+chemistry_long |> 
+  filter(Site == 50, 
+         DateTime > ymd("2023-01-01")) |> 
+ggplot(aes(x = DateTime, y = value, col=Reservoir)) +
   geom_point(size=1) +
   stat_summary(fun.y="mean", geom="point",pch=21,  size=3, fill='black') +
   facet_grid(metric ~ Reservoir, scales= 'free_y') +
   scale_x_date(labels = date_format("%d %b")) +
   scale_y_continuous("Concentration at site 50") +
   theme(axis.text.x = element_text(angle = 45, hjust=1), legend.position='none')
-ggsave("./Data/DataNotYetUploadedToEDI/NutrientData/Figures/2023/FCR_BVR_CCR_all_nutrients_summer2023.jpg", width=4, height=4)
+ggsave("~/Figures/FCR_BVR_CCR_all_nutrients_summer2023.jpg", width=4, height=4)
 
 ```
+
 
 ```{r 2023 diagnostic plots}
 
@@ -67,7 +236,7 @@ ggplot(subset(chemistry_long, Reservoir=='FCR' & Site=="50"), aes(x = DateTime, 
   scale_color_manual("FCR_Depth (m)", values = viridis(10))
   #geom_vline(xintercept=as.numeric(as.Date(c("2021-06-11", "2021-07-12", "2021-07-26", "2022-03-22")))) +
   #geom_vline(xintercept=as.numeric(as.Date(c("2021-06-26", "2021-07-14","2021-12-06", "2022-03-24"))), linetype="dotted")
-ggsave("./Data/DataNotYetUploadedToEDI/NutrientData/Figures/2023/FCR_all_nutrients_summer2023.jpg", width=4, height=4)
+ggsave("~/Figures/FCR_all_nutrients_summer2023.jpg", width=4, height=4)
 
 ```
 
@@ -85,7 +254,7 @@ ggplot(subset(chemistry_long, Reservoir=='FCR' & Site!="50"), aes(x = DateTime, 
         legend.text = element_text(size=5),
         legend.title = element_text(size=6)) + 
   scale_color_manual("FCR_Site", values = rainbow(10)) 
-ggsave("./Data/DataNotYetUploadedToEDI/NutrientData/Figures/2023/FCR_sites_all_nutrients_summer2023.jpg", width=4, height=4)
+ggsave("~/Figures/FCR_sites_all_nutrients_summer2023.jpg", width=4, height=4)
 
 ```
 
@@ -103,7 +272,7 @@ ggplot(subset(chemistry_long, Reservoir=='BVR' & Site=="50"), aes(x = DateTime, 
         legend.text = element_text(size=5),
         legend.title = element_text(size=6)) + 
   scale_color_manual("BVR_Depth (m)", values = plasma(10)) 
-ggsave("./Data/DataNotYetUploadedToEDI/NutrientData/Figures/2023/BVR_all_nutrients_summer2023.jpg", width=4, height=4)
+ggsave("~/Figures/BVR_all_nutrients_summer2023.jpg", width=4, height=4)
 
 ```
 
@@ -117,7 +286,7 @@ ggplot(subset(chemistry_long, Reservoir=='BVR' & Site!="50"), aes(x = DateTime, 
   scale_y_continuous("Concentration") +
   theme(axis.text.x = element_text(angle = 0, hjust=0.5)) + 
   scale_color_manual("BVR_Site", values = plasma(8)) 
-ggsave("./Data/DataNotYetUploadedToEDI/NutrientData/Figures/2023/BVR_sites_all_nutrients_summer2023.jpg", width=4, height=4)
+ggsave("~/Figures/BVR_sites_all_nutrients_summer2023.jpg", width=4, height=4)
 
 ```
 
@@ -136,14 +305,14 @@ ggplot(subset(chemistry_long, Reservoir=='CCR' & Site=="50"), aes(x = DateTime, 
         legend.text = element_text(size=5),
         legend.title = element_text(size=6)) + 
   scale_color_manual("CCR_Depth (m)", values = plasma(7)) 
-ggsave("./Data/DataNotYetUploadedToEDI/NutrientData/Figures/2023/CCR_50_all_nutrients_summer2023.jpg", width=4, height=4)
+ggsave("~/Figures/CCR_50_all_nutrients_summer2023.jpg", width=4, height=4)
 
 ```
 
 ```{r 2023 diagnostic plots}
 
 # CCR other sites nutrient time series
-p1 <- ggplot(subset(chemistry_long, Reservoir=='CCR' & Site!="50"), aes(x = DateTime, y = value, col=as.factor(Site))) +
+ggplot(subset(chemistry_long, Reservoir=='CCR' & Site!="50"), aes(x = DateTime, y = value, col=as.factor(Site))) +
   geom_point(cex=2) + theme_bw() +
   facet_grid(metric ~ ., scales='free') +
   scale_x_date("Date", date_breaks="1 month", date_labels = "%d %b") +
@@ -154,16 +323,16 @@ p1 <- ggplot(subset(chemistry_long, Reservoir=='CCR' & Site!="50"), aes(x = Date
         legend.text = element_text(size=5),
         legend.title = element_text(size=6)) + 
   scale_color_manual("CCR_Site", values = plasma(6)) 
-ggsave("./Data/DataNotYetUploadedToEDI/NutrientData/Figures/2023/CCR_sites_all_nutrients_summer2023.jpg", width=4, height=4)
+ggsave("~/Figures/CCR_sites_all_nutrients_summer2023.jpg", width=4, height=4)
 
 ```
 
 ```{r add additional columns to all chem df}
 #add column for year
-all_chem$year <- year(all_chem$DateTime)
+allchem$year <- year(allchem$DateTime)
 
-#### YSI diagnostic plots #### 
-all_chem_long <- all_chem %>%
+#### chem diagnostic plots #### 
+all_chem_long <- allchem %>%
   gather(metric, value, TP_ugL:DOC_mgL) %>% 
   mutate(month = strftime(DateTime, "%b"))
 
@@ -180,7 +349,7 @@ ggplot(all_chem_long, aes(x = DateTime, y = value, col=Reservoir)) +
   geom_point(size=1) +
   stat_summary(fun.y="mean", geom="point",pch=21,  size=3, fill='black') +
   facet_grid(metric ~ Reservoir, scales= 'free_y') +
-  scale_x_datetime("Date", date_breaks="2 months", date_labels = "%b %Y") +
+  scale_x_date("Date", date_breaks="2 months", date_labels = "%b %Y") +
   scale_y_continuous("") +
   theme(axis.text.x = element_text(angle = 45, hjust=1), legend.position='none')
 ```
@@ -191,28 +360,51 @@ ggplot(all_chem_long, aes(x = DateTime, y = value, col=Reservoir)) +
 ggplot(subset(all_chem_long, Site=="50" & Reservoir=="BVR"), aes(x = DateTime, y = value, col=Depth_m)) +
   geom_point(cex=2) +
   facet_grid(metric ~ Reservoir, scales='free') +
-  scale_x_datetime("Date", date_breaks="1 month", date_labels = "%b %Y") +
+  scale_x_date("Date", date_breaks="1 month", date_labels = "%b %Y") +
   scale_y_continuous("") +
   theme(axis.text.x = element_text(angle = 45, hjust=1)) +
   scale_color_gradient("Depth (m)", high = "black", low = "deepskyblue")
-ggsave("~/Reservoirs/Data/DataAlreadyUploadedToEDI/EDIProductionFiles/MakeEMLChemistry/2023/Figures/Chem_depths_2023.jpg",width=3.5, height=4)
+ggsave("~/Figures/Chem_depths_2023.jpg",width=3.5, height=4)
 
 ```
 
 ```{r all data plots}
 
 # FCR only; all sampling sites 
-ggplot(subset(all_chem_long, Reservoir=='FCR'), aes(x = DateTime, y = value, col=Depth_m)) +
+ggplot(subset(all_chem_long, Reservoir=='FCR' & Site =='50'), aes(x = DateTime, y = value, col=Depth_m)) +
   geom_point(cex=2) +
   facet_grid(metric ~ Site, scales='free') +
-  scale_x_datetime("Date", date_breaks="2 months", date_labels = "%d %b") +
+  scale_x_date("Date", date_labels = "%b %y") +
   scale_y_continuous("Concentration") +
   theme(axis.text.x = element_text(angle = 45, hjust=1)) +
   scale_color_gradient("Depth (m)", high = "black", low = "deepskyblue")
-ggsave("~/Reservoirs/Data/DataAlreadyUploadedToEDI/EDIProductionFiles/MakeEMLChemistry/2023/Figures/FCR_ChembySite_2023.jpg",width=3.5, height=4)
+ggsave("~/Figures/FCR_ChembySite_2023.jpg",width=3.5, height=4)
 
 ```
 
-```{r save the data}
-write.csv(ysi,file.path("./Data/DataAlreadyUploadedToEDI/EDIProductionFiles/MakeEMLChemistry/2023/Data/Chemistry_2013-2023.csv"), row.names=FALSE)
+
+
+
+```{r Make site description file}
+ # These lines of code make the csv of the site descriptions with lat and long
+
+  # Use Gsheet because you don't need to authenticate it. 
+sites <- gsheet::gsheet2tbl("https://docs.google.com/spreadsheets/d/1TlQRdjmi_lzwFfQ6Ovv1CAozmCEkHumDmbg_L4A2e-8/edit#gid=1244423834")
+
+  data <- all_chem #This is the line you need to modify!
+  
+  trim_sites = function(data,sites){
+    data_res_site = data %>% #Create a Reservoir/Site combo column
+      mutate(res_site = trimws(paste0(Reservoir,Site)))
+    sites_merged = sites%>% #Filter to Sites that are in the dataframe
+      mutate(res_site = trimws(paste0(Reservoir,Site)))%>%
+      filter(res_site%in%data_res_site$res_site)%>%
+      select(-res_site)
+  }
+  
+sites_trimmed = trim_sites(data,sites) 
+  
+write.csv(sites_trimmed, "reservoir_site_descriptions.csv", row.names=F)# Write to file
+
 ```
+

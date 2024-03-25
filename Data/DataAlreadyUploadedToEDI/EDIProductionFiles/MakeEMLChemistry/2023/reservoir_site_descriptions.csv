@@ -1,0 +1,39 @@
+"Reservoir","Site","Site_description","Latitude","Longitude"
+"BVR","20","Pelagic upstream site on western arm in central part of depth transect of Beaverdam Reservoir approximately 1/3 of the distance between the western reservoir inflow and the confluence of the two reservoir arms closest to the inflow (when reservoir is at full pond)",37.31701,-79.8226
+"BVR","30","Pelagic upstream site on eastern arm in central part of depth transect at Beaverdam Reservoir; approximately halfway point between eastern reservoir inflow and confluence of two reservoir arms (when reservoir is at full pond)",37.31921,-79.8182
+"BVR","40","Pelagic upstream site in Beaverdam Reservoir at the location of the upstream pipe outflow leading to Falling Creek Reservoir",37.314783,-79.820864
+"BVR","45","Pelagic upstream site in central part of depth transect of Beaverdam Reservoir approximately halfway from reservoir arm confluence and the dam",37.31447,-79.8187
+"BVR","50","Pelagic deep hole site nearest to dam; at BVR platform closest to dam",37.31288,-79.8159
+"BVR","51","Littoral site southwest of site 50 used for zooplankton horizontal migration research",37.31267,-79.816592
+"BVR","100","Inflow stream site to BVR on western reservoir arm",37.31957,-79.82437
+"BVR","175","Inflow stream site to BVR on the west fork of the eastern arm of reservoir",37.321861,-79.818368
+"BVR","200","Inflow stream site to BVR on eastern reservoir arm that drains upstream impoundment",37.322851,-79.81721
+"BVR","215","Inflow stream site to BVR on the east fork of the eastern arm of reservoir",37.321412,-79.814012
+"CCR","1","Pelagic upstream site near floating platform at CCR boat launch (used for Ironman sampling near where the swimmers enter the water)",37.3839,-79.9491
+"CCR","2","Pelagic upstream site to the west of the central depth transect of reservoir adjacent to the floating platform at CCR (used for Ironman sampling where swimmers turn the reservoir upstream after entering water)",37.385,-79.951
+"CCR","3","Pelagic upstream site in central depth transct of CCR upstream of boat launch approximately halfway to Angel Branch cove (used for Ironman sampling; upstream most point swimmers are in the water)",37.3922,-79.9488
+"CCR","4","Littoral site immediately adjacent to boat launch at CCR (used for Ironman sampling where swimmers left the water)",37.3845,-79.9471
+"CCR","5","Pelagic upstream site in central depth transect that is approximately halfway between boat launch at CCR and dam (used for Ironman sampling to estimate downstream transfer of PPCPs to dam)",37.3788,-79.9529
+"CCR","50","Pelagic deep hole site of Carvins Cove Reservoir near dam (also site 6 for Ironman sampling); the closest access point to the dam via boat and 21 m at full pond",37.3706,-79.9582
+"CCR","51","Pelagic site directly at the dam sampled from dam walkway (site of sensors); can be sampled to 19m at full pond",37.3697,-79.958
+"CCR","101","Inflow stream site to Carvins Cove Reservoir at Horse Pen Branch",37.3646,-79.9733
+"CCR","100","Inflow stream site to Carvins Cove Reservoir where Horse Pen Branch meets the reservoir and is a standing water inflow (downstream of site 100)",37.3654,-79.972
+"CCR","110","Inflow stream site on ephemeral stream along trail to Horsepen Branch stream (formerly named site Z)",37.3665,-79.9719
+"CCR","201","Inflow stream site to Carvins Cove Reservoir at Carvins Creek Stream accessed via fireroad near red barns",37.3958,-79.9937
+"CCR","300","Inflow stream site to Carvins Cove Reservoir at Sawmill Branch inflow closest to reservoir (downstream of 301)",37.4094,-79.9699
+"CCR","301","Inflow stream site to Carvins Cove Reservoir at Sawmill Branch inflow site upstream of reservoir where fire road bridge crosses the stream",37.4169,-79.9771
+"CCR","400","Inflow tunnel site to Carvins Cove Reservoir at emergence of Tinker Creek Tunnel",37.399,-79.9485
+"CCR","500","Inflow stream site to Carvins Cove Reservoir downstream of where Catawaba Creek Tunnel emerges",37.4073,-79.9852
+"CCR","501","Inflow tunnel site to Carvins Cove Reservoir at emergence of Catawaba Creek Tunnel",37.4082,-79.9897
+"FCR","1","Outflow stream site at Falling Creek Reservoir spillway",37.30248264,-79.8373672
+"FCR","20","Pelagic upstream site at central depth transect of Falling Creek Reservoir; adjacent to where Tunnel Branch inflow enters into the reservoir",37.30769,-79.8371
+"FCR","30","Pelagic upstream site at central depth transect of Falling Creek Reservoir; approximately halfway between dam and Falling Creek inflow",37.30534,-79.8383
+"FCR","45","Pelagic upstream site at central depth transect of Falling Creek Reservoir; where reservoir flow enters into the deep hole basin of the reservoir",37.30418,-79.8383
+"FCR","50","Pelagic deep hole site nearest to Falling Creek Reservoir dam; at end of FCR catwalk",37.30325,-79.8373
+"FCR","99","Inflow stream site on Tunnel Branch primary inflow to Falling Creek Reservoir just above where the stream enters into the reservoir",37.307613,-79.8360878
+"FCR","100","Inflow stream site on Tunnel Branch primary inflow to Falling Creek Reservoir; long-term monitoring site where gauged weir is located",37.30858,-79.83494
+"FCR","101","Inflow stream site on Tunnel Branch primary inflow to Falling Creek Reservoir; upstream of weir and downstream of confluence of BVR inflow pipe and overland flow stream",37.309653,-79.830467
+"FCR","102","Inflow stream site on Tunnel Branch primary inflow to Falling Creek Reservoir; upstream of weir and just below where the BVR pipe emerges",37.311678,-79.827357
+"FCR","200","Inflow stream site on Falling Creek secondary inflow to Falling Creek Reservoir; also referred to as the wetland stream",37.30943,-79.83619
+"GWR","50","Pelagic deep hole nearest to dam at Gatewood Reservoir",37.04435281,-80.86329915
+"SHR","50","Pelagic deep hole nearest to dam at Spring Hollow Reservoir",37.23085223,-80.17590014

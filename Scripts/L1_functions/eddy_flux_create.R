@@ -12,25 +12,31 @@
 ## does a quick QAQC check and then creates an L1 file with all of the current fluxes
 ## A.Breef-Pilz edited to just make it the function 26 Jan 2024
 ## A.Breef-Pilz edits to filter by EDi package and make time conversion section work. 05 Feb 2024
+## A.Breef-Pilz edits to add in streaming summary files 
 
+### This function:
+# 1. Reads in the Summary files from the EddyFlux system that is streaming at FCR or from proceesed EddyPro files
+# 2. Compiles into one data frame
+# 3. Renames the columns
+# 4. Very light qaqc for extreme outliers
 
 # Additional notes: This script is included with this EDI package to show which QAQC has already been 
 # applied to generate these data <and includes additional R scripts available with this package>. 
 # This script is only for internal use by the data creator team and is provided as a reference; 
 # it will not run as-is. 
 
-
 #####################################################
 
 
 # Download/load libraries
-#  pacman::p_load(lubridate,tidyverse,hms,gridExtra,openair, googledrive)
-# 
+#pacman::p_load(lubridate,tidyverse,hms,gridExtra,openair, googledrive)
+
 # library(EDIutils)
 # library(xml2)
 
 
 eddypro_cleaning_function<-function(directory, # Name of the directory where the data folder and the QAQC plot folder lives
+                                    text_file=F, # Are you using the text file which is generated from the streaming summary files? If it is an EddyPro file then it is FALSE
                                     gdrive, # Are the files on Google Drive. True or False
                                     gshared_drive, # Name of the shared drive where the files are held or use as_id()and the ID of the folder
                                     #current_year, # Current Year. Must be numeric
@@ -41,11 +47,13 @@ eddypro_cleaning_function<-function(directory, # Name of the directory where the
   
   # Name the directory where the full output files are found. Ours are on GitHub 
   mydir <-directory
+
+  print(mydir)
   
   # list of EddyPro full output files on Github
-  rfiles <- list.files(path=paste0(mydir,"data/"),pattern="", full.names=TRUE)
+  rfiles <- list.files(path=mydir,pattern="", full.names=TRUE)
   
-  
+  print(rfiles)
   # Are the files on Google Drive? If so then download missing EddyPro Full Output files
   
   if(gdrive==T){
@@ -69,7 +77,7 @@ eddypro_cleaning_function<-function(directory, # Name of the directory where the
         
         name<-gdrive_files$name[i]
         
-        googledrive::drive_download(gdrive_files$id[i], path = paste0(mydir,"data/",name))
+        googledrive::drive_download(gdrive_files$id[i], path = paste0(mydir,name))
         
       }else{
         
@@ -78,219 +86,91 @@ eddypro_cleaning_function<-function(directory, # Name of the directory where the
     
   }
   
-  ## Now for the QAQC Plots Section
+  ## Now bind files together
   
-  
-  # Make a list of files on GitHub but only for the current year. Might need to think about transition time. 
-  
-  myfiles = list.files(path=paste0(mydir,"data/"),pattern= "", recursive = TRUE,full.names=TRUE)
-  
-  # Check this directory to see if there are plots of the data
-  qaqc_files <- list.files(path=paste0(mydir, "QAQC plots/"),pattern="", full.names=TRUE)
-  
-  
-  #taking out the the Temp Test files
-  #myfilesBVR <- myfiles[ !grepl("CR6_BVR_TempTest*", myfiles) ]#exclude the Temp test data
-  
-  # Check to see if a QAQC plot has been made. If it hasn't don't have to make it again and that means
-  # the data has already been cleaned and add to the current file
-  
-  #create an out.file for the combined data
-  
-  out.file <- NULL
-  
-  # read in header from an early file will all the columns we want
-  #  columns <- colnames(read.csv(myfiles[1], skip=1, as.is=T))%>%
-  #    map_dfr( ~tibble(!!.x := logical() ) )
-  
-  
-  for(k in 1:length(myfiles)){
+  if (text_file==T){
+    # This is for processing the streaming Summary files which are .txt and have to be read in differently then 
+    # the .csv that are processed in EddyPro
     
-    # read in the file
-    header2<-read.csv(myfiles[k], skip=1, as.is=T) #get header minus wonky Campbell rows
-    data2<-read.csv(myfiles[k], skip=3, header=F) #get data minus wonky Campbell rows
-    names(data2)<-names(header2) #combine the names to deal with Campbell logger formatting
+    myfiles <- list.files(path=mydir, pattern= "EP-Summary", recursive = TRUE, full.names=TRUE)
     
-    if(colnames(header2)[1]!="filename"){
-      data2<-read.csv(myfiles[k], header=T)
-      data2$date <- as.Date(data2$date, tryFormats = "%m/%d/%Y") # convert date 
-      data2$date <- as.character(data2$date) # make it character so can bind files together
-    }
+    print(myfiles)
+    # Let's use map to combine the files together
+    b <- myfiles%>%
+      purrr::map_df(~ read.delim(.x, header = TRUE, sep = "\t"))
     
-    # Clean up and make it useable for plotting
-    data2[data2 ==-9999] <- NA # Remove -9999 and replace with NAs
+  } else{
+    # They are .csv and were processed in EddyPro
     
-    # Make a datetime column
-    data2$datetime <- as.POSIXct(paste(data2$date , paste(data2$time), sep=" "))
+    myfiles = list.files(path=mydir,pattern= "full_output", recursive = TRUE,full.names=TRUE)
     
-    #extract the beginning of the file name to see if a qaqc plot has been made
-    dfile<-sub("\\_full.*", "",sub(pattern = "(.*)\\..*$", replacement = "\\1", basename(myfiles[k])))
+    b2 <- myfiles%>%
+      purrr::map_df(~read_csv(.x, skip=1,show_col_types = F))
     
+    # read in the compiled old file
     
-    # If a QAQC plot hasn't been made then make it and gave it in folder on GitHub
-    if (any(grepl(dfile,qaqc_files))==F){
+    oldfiles <- list.files(path=paste0(mydir,"/data/"), pattern="FCR_Eddy_up_to", recursive = T, full.names = T)
+    
+    if(identical(oldfiles, character(0))==T){
       
-      # Find the end row of the file. This is so I can get the date of the last reading
-      endrow=tail(data2,n=1)
+      c <-NULL
+    }else{
       
-      # Now create the PDF that is saved in the Google Drive
-      #folder <- "G:/Shared drives/VT-UBC FCR Team/QAQC Plots/"
-      pdf(paste0(mydir, "QAQC plots/",dfile," _ ", "plot", ".pdf"), width=8.5, height=11) #call PDF file
+      # read in the old file 
+      c <- readr::read_csv(oldfiles)
       
-      
-      #Create the first page
-      plot(0:10, type = "n", xaxt="n", yaxt="n", bty="n", xlab = "", ylab = "")
-      
-      text(5, 8, "EC Data Fluxes in Falling Creek Reservoir, Vinton, VA")
-      text(5, 7, paste0("Start: ",data2[1,'date']))
-      text(5, 6, paste0("End: ",endrow$date))
-      
-      # Now the plots for the first page
-      p1=data2 %>% 
-        ggplot(aes(datetime, ch4_flux)) + geom_point() + geom_line() + theme_bw()
-      
-      p2=data2 %>% 
-        ggplot(aes(datetime, co2_flux)) + geom_point() + geom_line() + theme_bw()
-      
-      # CO2 and CH4 signal strength
-      
-      p3=data2 %>% 
-        ggplot(aes(datetime, rssi_77_mean)) + geom_point() + geom_line() +
-        ylab("CH4 signal strength (%)")+
-        theme_bw()
-      
-      #CO2 signal changes when took out the 7200
-      if("co2_signal_strength_7200_mean" %in% names(data2)) {
-        p4=data2 %>% 
-          ggplot(aes(datetime, co2_signal_strength_7200_mean)) + geom_point() + geom_line() +
-          ylab("CO2 signal strength (%)")+
-          theme_bw()
-      } else {
-        p4=data2 %>% 
-          ggplot(aes(datetime, co2_signal_strength_7500_mean)) + geom_point() + geom_line() +
-          ylab("CO2 signal strength (%)")+
-          theme_bw()
-      }
-      
-      #Smartflux voltage in 
-      p5=data2 %>% 
-        ggplot(aes(datetime, vin_sf_mean)) + geom_point() +
-        theme_bw() +
-        geom_line() +
-        xlab(" ") +
-        ylab('Smartflux voltage (V)') +
-        scale_x_datetime(date_breaks = "1 days", date_labels = "%m-%d") 
-      #theme(axis.text.x = element_text(size = 14, color = "black", angle = 60, hjust = 1),
-      #     axis.text.y = element_text(size = 14, color = "black"),
-      #      axis.title = element_text(size = 16, color = "black"))
-      
-      grid.arrange(p1,p2,p3,p4,p5,nrow=5)
-      
-      # plot ustar distribution, wind speed, windrose and temperature
-      # Create a histogram of u*
-      p6=data2 %>% 
-        ggplot(aes(x=u.)) + geom_histogram()+
-        geom_histogram(color="black", fill="white")+
-        xlab('u star (m s^-1)')+
-        theme_bw()
-      
-      # Wind Speed U,V,W
-      p7=data2 %>% 
-        ggplot(aes(datetime, u_unrot)) + geom_point() + geom_line() +
-        ylab("U (m/s)")+
-        theme_bw()
-      p8=data2 %>% 
-        ggplot(aes(datetime, v_unrot)) + geom_point() + geom_line() +
-        ylab("V (m/s)")+
-        theme_bw()
-      p9=data2 %>% 
-        ggplot(aes(datetime, w_unrot)) + geom_point() + geom_line() +
-        ylab("W (m/s)")+
-        theme_bw()
-      
-      grid.arrange(p6,p7,p8,p9,nrow=4)
-      
-      # Visualize wind directions that 
-      chicago_wind=data2%>%
-        select(datetime,wind_speed,wind_dir)%>%
-        dplyr::rename(date = datetime, ws = wind_speed, wd = wind_dir)
-      pollutionRose(chicago_wind, pollutant="ws")
-      
-      # Sonic Temperature
-      p10=data2 %>% mutate(sonicC=sonic_temperature-273.15)%>%
-        ggplot(aes(datetime, sonicC)) + geom_point() + geom_line() +
-        ylab("Sonic Temperature (Degrees C)")+
-        theme_bw()
-      
-      # H and LE
-      p11=data2 %>% 
-        ggplot(aes(datetime, H)) + geom_point() + 
-        ylab("Sensible heat flux (W m^(-2))")+
-        theme_bw()
-      
-      p12=data2 %>% 
-        ggplot(aes(datetime, LE)) + geom_point() +
-        ylab("Latent heat flux (W m^(-2))")+
-        theme_bw()
-      
-      grid.arrange(p11,p12,nrow=2)
-      
-      # Flow Rate
-      if("flowrate_mean" %in% names(data2)) {
-        p13=data2 %>%
-          ggplot(aes(datetime, flowrate_mean*60000)) + geom_point() +
-          theme_bw() +
-          geom_line() +
-          xlab(" ") +
-          ylab('Flowrate (L min-1)') 
-      } else {
-        p13=data2%>%
-          ggplot(aes(datetime,60000))+geom_blank()+theme_bw()+
-          labs(title="CO2 sensor is out for service and there is no flowrate")
-      }
-      grid.arrange(p10,p13,nrow=2)
-      
-      dev.off()
+      # change columns to numeric instead of character
+      c[, c(1:166)] <- sapply(c[, c(1:166)], as.character)
       
     }
     
-    # Now that you have created the QAQC plots only pick the variables you want for EDI and for 
-    # Processing
+    # combine the old file with the new one
     
-    # If there was no flow rate than add that column. It means the 7200-101 flow module wasn't working. 
-    if(!("flowrate_mean" %in% names(data2))) {
-      data2$flowrate_mean<-NA
-      
-    }
+    b <- dplyr::bind_rows(c, b2)
+  }
+
+  print(colnames(b))
+  # Clean up the files 
+  data2 <-b|>
+    dplyr::filter(filename!="")
+  
+  # Clean up and make it useable for plotting
+  data2[data2 ==-9999] <- NA # Remove -9999 and replace with NAs
+  
+  # If there was no flow rate than add that column. It means the 7200-101 flow module wasn't working. 
+  if(!("flowrate_mean" %in% names(data2))) {
+    data2$flowrate_mean<-NA
     
-    data3<-data2%>%select(date,time,DOY,Tau,qc_Tau,H,qc_H,LE,qc_LE,co2_flux,qc_co2_flux,h2o_flux,
-                          qc_h2o_flux,ch4_flux,qc_ch4_flux,`co2_v.adv`,`h2o_v.adv`,`ch4_v.adv`,
-                          co2_molar_density,co2_mole_fraction,co2_mixing_ratio,co2_time_lag,
-                          co2_def_timelag,h2o_molar_density,h2o_mole_fraction,h2o_mixing_ratio,
-                          h2o_time_lag,h2o_def_timelag,ch4_molar_density,ch4_mole_fraction,
-                          ch4_mixing_ratio,ch4_time_lag,ch4_def_timelag,sonic_temperature,
-                          air_temperature,air_pressure,air_density,air_heat_capacity,
-                          air_molar_volume,ET,water_vapor_density,e,es,specific_humidity,RH,VPD,
-                          Tdew,wind_speed,max_wind_speed,wind_dir,`u.`,TKE,L,`X.z.d..L`,bowen_ratio,
-                          `T.`,x_peak,x_offset,`x_10.`,`x_30.`,`x_50.`,`x_70.`,`x_90.`,un_Tau,
-                          Tau_scf,un_H,H_scf,un_LE,LE_scf,un_co2_flux,co2_scf,un_h2o_flux,
-                          h2o_scf,un_ch4_flux,ch4_scf,u_var,v_var,w_var,rssi_77_mean, flowrate_mean)
-    out.file=bind_rows(data3, out.file)
   }
   
-  # # Get rid of rows with no date
-  # out.file2 <- subset(out.file, out.file$date != "")
+  # select the columns we want 
+  
+  data3<-data2%>%
+    dplyr::select(date,time,DOY,Tau,qc_Tau,H,qc_H,LE,qc_LE,co2_flux,qc_co2_flux,h2o_flux,
+                        qc_h2o_flux,ch4_flux,qc_ch4_flux,`co2_v.adv`,`h2o_v.adv`,`ch4_v.adv`,
+                        co2_molar_density,co2_mole_fraction,co2_mixing_ratio,co2_time_lag,
+                        co2_def_timelag,h2o_molar_density,h2o_mole_fraction,h2o_mixing_ratio,
+                        h2o_time_lag,h2o_def_timelag,ch4_molar_density,ch4_mole_fraction,
+                        ch4_mixing_ratio,ch4_time_lag,ch4_def_timelag,sonic_temperature,
+                        air_temperature,air_pressure,air_density,air_heat_capacity,
+                        air_molar_volume,ET,water_vapor_density,e,es,specific_humidity,RH,VPD,
+                        Tdew,wind_speed,max_wind_speed,wind_dir,`u.`,TKE,L,`X.z.d..L`,bowen_ratio,
+                        `T.`,x_peak,x_offset,`x_10.`,`x_30.`,`x_50.`,`x_70.`,`x_90.`,un_Tau,
+                        Tau_scf,un_H,H_scf,un_LE,LE_scf,un_co2_flux,co2_scf,un_h2o_flux,
+                        h2o_scf,un_ch4_flux,ch4_scf,u_var,v_var,w_var,rssi_77_mean, flowrate_mean)
+  
   
   # change columns to numeric instead of character
-  out.file[, c(3:80)] <- sapply(out.file[, c(3:80)], as.numeric)
+  data3[, c(3:80)] <- sapply(data3[, c(3:80)], as.numeric)
   
   
-  current.ec<-out.file%>%
-    mutate(date=ymd(date), #converts date to correct format
-           time=strptime(time, format = "%H:%M"), #converts time to postix
-           time=as_hms(time), #takes out the date and just leaves the time
-           #Year = year(date),
-           flowrate_mean = flowrate_mean *60000)%>% # convert the flowrate to L min-1
+  current.ec<-data3%>%
+    dplyr::mutate(
+      date=lubridate::parse_date_time(date, orders = c('ymd','mdy')),#converts date to correct format
+      time=strptime(time, format = "%H:%M"), #converts time to postix
+      time=as_hms(time), #takes out the date and just leaves the time
+      #Year = year(date),
+      flowrate_mean = flowrate_mean *60000)%>% # convert the flowrate to L min-1
     dplyr::rename(Tau_kgms2 = Tau,
                   H_wm2 = H,
                   LE_wm2 = LE,
@@ -349,6 +229,16 @@ eddypro_cleaning_function<-function(directory, # Name of the directory where the
                   v_var_ms = v_var,
                   w_var_ms = w_var)
   
+  # round columns
+  # Columns to round
+  columns_dont_round <- c("date","time","DOY","qc_Tau","qc_H","qc_LE","qc_co2_flux","qc_h2o_flux",
+                          "co2_def_timelag", "ch4_def_timelag")
+  
+  # Round everything but certain columns
+  current.ec <- current.ec %>%
+    mutate_at(vars(-one_of(columns_dont_round)), ~ round(., digits = 4))
+  
+  
   # Make a datetime column
   #current.ec$datetime <- as.POSIXct(paste(current.ec$date , paste(current.ec$time), sep=" "))
   
@@ -360,10 +250,10 @@ eddypro_cleaning_function<-function(directory, # Name of the directory where the
   # Set everything to Etc/GMT+4
   # Make a datetime column
   
-  current.ec$datetime <- ymd_hms(paste0(as.character(current.ec$date), " " , as.character(current.ec$time)), tz="Etc/GMT+4")
+  current.ec$datetime <- lubridate::ymd_hms(paste0(as.character(current.ec$date), " " , as.character(current.ec$time)), tz="Etc/GMT+4")
   
   sed <- current.ec%>%
-    select(date,time,datetime)
+    dplyr::select(date,time,datetime)
   
   # order the datetime column
   # reorder 
@@ -373,7 +263,7 @@ eddypro_cleaning_function<-function(directory, # Name of the directory where the
     # shows time point when met station was switched from GMT -4(EST) to GMT -5(EDT) then -2 to get the row number right
     flux_timechange=max(which(current.ec$datetime=="2020-09-02 17:30:00")-2) 
     #Met$DateTime<-as.POSIXct(strptime(Met$DateTime, "%Y-%m-%d %H:%M"), tz = "Etc/GMT+5") #get dates aligned
-    current.ec$datetime[c(0:flux_timechange+1)]<-with_tz(force_tz(current.ec$datetime[c(0:flux_timechange+1)],"Etc/GMT+5"), "Etc/GMT+4") #pre time change data gets assigned proper timezone then corrected to GMT -5 to match the rest of the data set
+    current.ec$datetime[c(0:flux_timechange+1)]<-lubridate::with_tz(force_tz(current.ec$datetime[c(0:flux_timechange+1)],"Etc/GMT+5"), "Etc/GMT+4") #pre time change data gets assigned proper timezone then corrected to GMT -5 to match the rest of the data set
   }
   # else if (min(current.ec$datetime, na.rm = TRUE)<"2020-09-02 17:30:00"){
   #   #pre time change data gets assigned proper timezone then corrected to GMT -5 to match the rest of the data set
@@ -396,19 +286,19 @@ eddypro_cleaning_function<-function(directory, # Name of the directory where the
   ### identify the date subsetting for the data
   if (!is.null(start_date)){
     current.ec <- current.ec %>% 
-      filter(datetime >= start_date)
+      dplyr::filter(datetime >= start_date)
   }
   
   if(!is.null(end_date)){
     current.ec <- current.ec %>% 
-      filter(datetime <= end_date)
+      dplyr::filter(datetime <= end_date)
   }
   
   
   ## Add flag for missing data: 3 = missing data, 4= instrument malfunction 
   # For: qc_tau, qc_H, qc_LE, qc_co2_flux, qc_h2o_flux, qc_ch4_flux
   ec_all <- current.ec %>% 
-    mutate(qc_Tau = ifelse(is.na(Tau_kgms2), 3, qc_Tau),
+    dplyr::mutate(qc_Tau = ifelse(is.na(Tau_kgms2), 3, qc_Tau),
            qc_H = ifelse(is.na(H_wm2), 3, qc_H),
            qc_LE = ifelse(is.na(LE_wm2), 3, qc_LE),
            qc_co2_flux = ifelse(is.na(co2_flux_umolm2s), 3, qc_co2_flux),
@@ -424,9 +314,9 @@ eddypro_cleaning_function<-function(directory, # Name of the directory where the
            co2_flux_umolm2s = ifelse(co2_flux_umolm2s > 300 & !is.na(co2_flux_umolm2s) | co2_flux_umolm2s < -300 & !is.na(co2_flux_umolm2s), NA, co2_flux_umolm2s), # take out very high and low fluxes
            qc_h2o_flux = ifelse(h2o_flux_umolm2s > 40 & !is.na(h2o_flux_umolm2s) | h2o_flux_umolm2s < -40 & !is.na(h2o_flux_umolm2s), 4, qc_h2o_flux),
            h2o_flux_umolm2s = ifelse(h2o_flux_umolm2s > 40 & !is.na(h2o_flux_umolm2s) | h2o_flux_umolm2s < -40 & !is.na(h2o_flux_umolm2s), NA, h2o_flux_umolm2s))%>% # take out very high and low fluxes
-    distinct()%>% # take out duplicates
-    select(-flowrate_mean)%>% # take out the columns not in EDI
-    select(date, time, everything())
+    dplyr::distinct()%>% # take out duplicates
+    dplyr::select(-flowrate_mean)%>% # take out the columns not in EDI
+    dplyr::select(date, time, everything())
   
   
   
@@ -446,10 +336,10 @@ eddypro_cleaning_function<-function(directory, # Name of the directory where the
   # take the value with the highest Tau_kg2 because the other one is an NA.  
   
   ec_all <- ec_all %>% 
-    group_by(datetime) %>% 
-    slice_max(Tau_kgms2, n = 1) %>%
-    ungroup()%>%
-    select(-datetime)
+    dplyr::group_by(datetime) %>% 
+    dplyr::slice_max(Tau_kgms2, n = 1) %>%
+    dplyr::ungroup()%>%
+    dplyr::select(-datetime)
   
   
   # ## identify latest date for data on EDI (need to add one (+1) to both dates because we want to exclude all possible start_day data and include all possible data for end_day)
@@ -458,7 +348,7 @@ eddypro_cleaning_function<-function(directory, # Name of the directory where the
   #  date_attribute <- xml_find_all(eml, xpath = ".//temporalCoverage/rangeOfDates/endDate/calendarDate")
   #  last_edi_date <- as.Date(xml_text(date_attribute)) + lubridate::days(1)
   
-  # ec_all <- ec_all |> filter(date> last_edi_date)
+  # ec_all <- ec_all |> dplyr::filter(date> last_edi_date)
   
   # convert datetimes to characters so that they are properly formatted in the output file
   ec_all$date <- as.character(format(ec_all$date))
@@ -470,7 +360,7 @@ eddypro_cleaning_function<-function(directory, # Name of the directory where the
   if (is.null(output_file)){
     return(ec_all)
   }else{
-    write_csv(ec_all, paste0(mydir,output_file))
+    readr::write_csv(ec_all, output_file)
   }
   
 }
@@ -480,12 +370,13 @@ eddypro_cleaning_function<-function(directory, # Name of the directory where the
 #   directory = "./Data/DataNotYetUploadedToEDI/EddyFlux_Processing/",
 #   gdrive = F, # Are the files on Google Drive. True or False
 #   gshared_drive = as_id("0ACybYKbCwLRPUk9PVA"),
-#   current_year = 2023,
+#   #current_year = 2023,
 #   output_file = "/EddyPro_Cleaned_L1.csv",
 #   start_date = as.Date("2022-12-31") + lubridate::days(1),
 #   end_date = Sys.Date() + lubridate::days(1))
-# 
+
 # 
 # ## Call healthcheck
 # RCurl::url.exists("https://hc-ping.com/f0ba1278-7b06-4b3b-b8aa-5486e778abc3", timeout = 5)
+
 

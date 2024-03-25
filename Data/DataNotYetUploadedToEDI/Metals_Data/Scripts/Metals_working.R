@@ -15,7 +15,7 @@
 # 7. Save files
 
 # Read in packages
-pacman::p_load("tidyverse", "lubridate", "gsheet", "rqdatatable")
+pacman::p_load("tidyverse", "lubridate", "gsheet", "rqdatatable", "hms")
 
 metals_qaqc <- function(directory = "./Data/DataNotYetUploadedToEDI/Metals_Data/Raw_Data/2023/",
                         historic = "./Data/DataNotYetUploadedToEDI/Metals_Data/Raw_Data/historic_raw_2014_2019_w_unique_samp_campaign.csv",
@@ -30,7 +30,7 @@ metals_qaqc <- function(directory = "./Data/DataNotYetUploadedToEDI/Metals_Data/
                         
 {
   
-  # # These are so I can run the function one step at a time and figure everything out. 
+  # # These are so I can run the function one step at a time and figure everything out.
   # # Leave for now while still in figuring out mode
   # directory = "./Data/DataNotYetUploadedToEDI/Metals_Data/Raw_Data/"
   # historic = "./Data/DataNotYetUploadedToEDI/Metals_Data/Raw_Data/historic_raw_2014_2019_w_unique_samp_campaign.csv"
@@ -38,7 +38,7 @@ metals_qaqc <- function(directory = "./Data/DataNotYetUploadedToEDI/Metals_Data/
   # maintenance_file = "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Metals_Data/Metals_Maintenance_Log.csv"
   # sample_time = "https://docs.google.com/spreadsheets/d/1MbSN2G_NyKyXQUEzfMHmxEgZYI_s-VDVizOZM8qPpdg/edit#gid=0"
   # MRL_file = "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Metals_Data/MRL_metals.txt"
-  # outfile = "./Data/DataNotYetUploadedToEDI/Metals_Data/metals_L1.csv"
+  # #outfile = "./Data/DataNotYetUploadedToEDI/Metals_Data/metals_L1.csv"
   # ISCO_outfile = "./Data/DataNotYetUploadedToEDI/FCR_ISCO/ISCO_metals_L1.csv"
 
   #### 1. Read in Maintenance Log and Sample ID Key ####
@@ -422,7 +422,7 @@ metals_qaqc <- function(directory = "./Data/DataNotYetUploadedToEDI/Metals_Data/
      dplyr::rename(Site=clean_site)|>
      select(Reservoir, Site, Date, Time, Depth_m, starts_with("T"), starts_with("S"), starts_with("Flag"))|>
     mutate(
-      Time = as.character(as_hms(Time)), # convert time and flag if time is NA
+      Time = as.character(hms::as_hms(Time)), # convert time and flag if time is NA
       Flag_DateTime = ifelse(is.na(Time), 1, 0),
       Time = ifelse(Flag_DateTime==1, "12:00:00",Time), # set flagged time to noon
       DateTime = ymd_hms(paste0(Date," ",Time))
@@ -481,6 +481,9 @@ metals_qaqc <- function(directory = "./Data/DataNotYetUploadedToEDI/Metals_Data/
 
   # Flag all Na in the data frame again
   for(j in colnames(raw_df|>select(starts_with("T_"),starts_with("S_")))) {
+    
+    # add a flag if the samples were switched
+    raw_df[which(raw_df[,'switch_all'] == 1), paste0("Flag_",j)] <- 9
 
     # puts in flag 1 if value not collected
     raw_df[c(which(is.na(raw_df[,j]) & is.na(raw_df[paste0("Flag_",j)]))),paste0("Flag_",j)] <- 1

@@ -1,0 +1,25 @@
+attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+Reservoir	Three-letter code corresponding to sampled reservoir	character			NA	value is missing
+Site	Sampling site at each reservoir	numeric	dimensionless		NA	value is missing
+DateTime	"Date and time of sampling. All data were collected in the eastern time zone of the U.S.A., with daylight savings time observed"	Date		YYYY-MM-DD hh:mm:ss	NA	value is missing
+Depth_m	Water depth where the sample was collected or sensor reading was measured	numeric	meter		NA	value is missing
+Rep	"Field replicates collected at the same site, date, and depth"	numeric	dimensionless		NA	value is missing
+TN_ugL	Total nitrogen concentration	numeric	microgramsPerLiter		NA	value is missing
+TP_ugL	Total phosphorus concentration	numeric	microgramsPerLiter		NA	value is missing
+NH4_ugL	Ammonium concentration	numeric	microgramsPerLiter		NA	value is missing
+NO3NO2_ugL	Nitrate-nitrite concentration	numeric	microgramsPerLiter		NA	value is missing
+SRP_ugL	Soluble reactive phosphorus concentration	numeric	microgramsPerLiter		NA	value is missing
+DOC_mgL	Dissolved organic carbon concentration	numeric	milligramsPerLiter		NA	value is missing
+DIC_mgL	Dissolved inorganic carbon concentration	numeric	milligramsPerLiter		NA	value is missing
+DC_mgL	Dissolved carbon concentration	numeric	milligramsPerLiter		NA	value is missing
+DN_mgL	Dissolved nitrogen concentration	numeric	milligramsPerLiter		NA	value is missing
+Flag_DateTime	"Data flag for DateTime; 0 = exact time, 1 = approximate time"	numeric	dimensionless		NA	value is missing 
+Flag_TN_ugL	"Data flag for total nitrogen (TN); 1 = sample not taken, 2 = instrument malfunction, 3 = sample below detection, 4 = negative value set to zero, 5 = demonic intrusion, 6 = non-standard method, 7 = sample run multiple times and values averaged, 9 = suspect sample"	numeric	dimensionless		NA	value is missing
+Flag_TP_ugL	"Data flag for total phosphorus (TP); 1 = sample not taken, 2 = instrument malfunction, 3 = sample below detection, 4 = negative value set to zero, 5 = demonic intrusion, 6 = non-standard method, 7 = sample run multiple times and values averaged, 9 = suspect sample"	numeric	dimensionless		NA	value is missing
+Flag_NH4_ugL	"Data flag for ammonium (NH4); 1 = sample not taken, 2 = instrument malfunction, 3 = sample below detection, 4 = negative value set to zero, 5 = demonic intrusion, 6 = non-standard method, 7 = sample run multiple times and values averaged, 9 = suspect sample"	numeric	dimensionless		NA	value is missing
+Flag_NO3NO2_ugL	"Data flag for nitrate nitrite (NO3NO2); 1 = sample not taken, 2 = instrument malfunction, 3 = sample below detection, 4 = negative value set to zero, 5 = demonic intrusion, 6 = non-standard method, 7 = sample run multiple times and values averaged, 9 = suspect sample"	numeric	dimensionless		NA	value is missing
+Flag_SRP_ugL	"Data flag for soluble reactive phosphorus (SRP); 1 = sample not taken, 2 = instrument malfunction, 3 = sample below detection, 4 = negative value set to zero, 5 = demonic intrusion, 6 = non-standard method, 7 = sample run multiple times and values averaged, 9 = suspect sample"	numeric	dimensionless		NA	value is missing
+Flag_DOC_mgL	"Data flag for dissolved organic carbon (DOC); 1 = sample not taken, 2 = instrument malfunction, 3 = sample below detection, 4 = negative value set to zero, 5 = demonic intrusion, 6 = non-standard method, 7 = sample run multiple times and values averaged, 8 = sample run using NPOC method due to high IC values, 9 = suspect sample"	numeric	dimensionless		NA	value is missing
+Flag_DIC_mgL	"Data flag for dissolved inorganic carbon (DIC); 1 = sample not taken, 2 = instrument malfunction, 3 = sample below detection, 4 = negative value set to zero, 5 = demonic intrusion, 6 = non-standard method, 7 = sample run multiple times and values averaged, 9 = suspect sample"	numeric	dimensionless		NA	value is missing
+Flag_DC_mgL	"Data flag for dissolved carbon (DC); 1 = sample not taken, 2 = instrument malfunction, 3 = sample below detection, 4 = negative value set to zero, 5 = demonic intrusion, 6 = non-standard method, 7 = sample run multiple times and values averaged, 9 = suspect sample"	numeric	dimensionless		NA	value is missing
+Flag_DN_mgL	"Data flag for dissolved nitrogen (DN); 1 = sample not taken, 2 = instrument malfunction, 3 = sample below detection, 4 = negative value set to zero, 5 = demonic intrusion, 6 = non-standard method, 7 = sample run multiple times and values averaged, 8 = sample run using NPOC method due to high IC values, 9 = suspect sample"	numeric	dimensionless		NA	value is missing
